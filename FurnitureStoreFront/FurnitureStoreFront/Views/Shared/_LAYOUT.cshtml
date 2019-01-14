@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato|Montserrat" rel="stylesheet">
+    <link href="~/Content/MainStyle.css" rel="stylesheet" />
+</head>
+<body>
+    <header class="mainHeader">
+        <h1 id="logo">Furniture Store</h1>
+        <nav>
+            <a href="#" class="styledLink">Home</a>
+            <a href="#" class="checkout styledLink">Checkout</a>
+            <a href="#" class="styledLink">UserPage</a>
+        </nav>
+    </header>
+    <div class="content">
+        @RenderBody()
+    </div>
+    <footer>
+        <p>Furniture Store &copy;</p>
+        <p>072-456-7832</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.271
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FurnitureStoreFront", "FurnitureStoreFront\FurnitureStoreFront.csproj", "{53444D34-1AC6-46AD-8D77-EAF96AC99343}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{53444D34-1AC6-46AD-8D77-EAF96AC99343}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53444D34-1AC6-46AD-8D77-EAF96AC99343}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53444D34-1AC6-46AD-8D77-EAF96AC99343}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53444D34-1AC6-46AD-8D77-EAF96AC99343}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E9A918BC-9667-4D41-B7DD-0B6963A183A8}
+	EndGlobalSection
+EndGlobal

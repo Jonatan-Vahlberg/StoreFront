@@ -1,0 +1,74 @@
+﻿/*Styling for all pages*/
+:root {
+    --Orange-Back: #FF5A00;
+    --Purple-Front: #E40DFF;
+}
+
+html{
+    width:100%;
+    overflow-x:hidden;
+    margin:0;
+}
+
+body {
+    width:100%;
+    min-height: 100vh;
+    display: grid;
+    grid-template-Rows: 100px 1fr 100px;
+    margin: 0;
+    background-color: var(--Orange-Back);
+}
+
+p,a {
+    font-family: 'Montserrat', sans-serif;
+}
+h1 {
+    font-family: 'lato', sans-serif;
+    font-weight: 900;
+}
+header {
+    grid-row: 0;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    border-bottom: solid 5px black;
+    background: url(Images/pattern.png)repeat-x;
+    background-color: var(--Orange-Back);
+    color: white;
+    text-shadow: 2px 2px black;
+}
+#logo {
+    grid-column: 1;
+    font-size: 3.5rem;
+    margin-right: 30px;
+    
+}
+nav {
+    margin: auto 0;
+    margin-right: 30px;
+    grid-column: 2/5;
+    font-size: 2.8rem;
+    text-align: right;
+}
+.styledLink, .styledLink:visited .styledLink:link{
+    font-weight:bold;
+    padding-left:20px;
+    text-decoration:none;
+    color: #ffffff;
+}
+.styledLink:hover {
+    color: #E40DFF;
+}
+.content {
+    width: 80%;
+    margin: 0 auto;
+    background-color: white;
+    
+}
+footer {
+    background: url(Images/pattern_Flipped.png)repeat-x;
+    color: #ffffff;
+    font-size: 1.4rem;
+    background-color: var(--Orange-Back);
+    text-shadow: 2px 2px black;
+    border-Top: solid 5px black;
+}

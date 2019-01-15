@@ -105,6 +105,7 @@
     </Compile>
     <Compile Include="Models\Cart\Cart.cs" />
     <Compile Include="Models\Cart\Receipt.cs" />
+    <Compile Include="Models\StoreFront\StoreFront.cs" />
     <Compile Include="Models\StoreItem\StoreEnums.cs" />
     <Compile Include="Models\StoreItem\StoreItem.cs" />
     <Compile Include="Models\User\Customer.cs" />
@@ -129,7 +130,6 @@
     <Folder Include="App_Data\_RECEIPT\" />
     <Folder Include="App_Data\_USER\" />
     <Folder Include="Models\Files\" />
-    <Folder Include="Models\StoreFront\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

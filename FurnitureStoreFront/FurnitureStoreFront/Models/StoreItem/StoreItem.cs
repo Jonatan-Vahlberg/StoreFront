@@ -62,6 +62,7 @@ namespace FurnitureStoreFront.Models.StoreItem
         {
             return this.TypeOfFurniture;
         }
+        
         /// <summary>
         /// Gets global stat of item
         /// Used in marketing
@@ -91,15 +92,15 @@ namespace FurnitureStoreFront.Models.StoreItem
         #endregion
         #region Constructors
         /// <summary>
-        /// 
+        /// Default constructor of a store item
         /// </summary>
-        /// <param name="name"></param>
-        /// <param name="id"></param>
-        /// <param name="price"></param>
-        /// <param name="room"></param>
-        /// <param name="colors"></param>
-        /// <param name="material"></param>
-        protected  Furniture(string name, uint id, uint price, string room, Color colors, Material material)
+        /// <param name="name">name of item</param>
+        /// <param name="id">id of item</param>
+        /// <param name="price">price of item</param>
+        /// <param name="room">room of item</param>
+        /// <param name="colors">Color or colors of item</param>
+        /// <param name="material">material or materials of item</param>
+        protected Furniture(string name, uint id, uint price, string room, Color colors, Material material)
         {
             this.Name = name;
             this.id = id;

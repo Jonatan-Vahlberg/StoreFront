@@ -7,34 +7,60 @@
 <link href="~/Content/LoginStyle.css" rel="stylesheet" />
 <main>
     <section class="loginPanel">
-        <form>
-            <label for="email">Email:<br /></label>
-            <input type="email" name="Emaíl" placeholder="email@provider.com" /><br />
-            <label for="email">Password:<br /></label>
-            <input type="password" name="Password" placeholder="Password" /><br />
+        <form method="post">
+            <label for="LEmail">Email<br /></label>
+            <input type="email" name="LEmail" placeholder="email@provider.com" required/><br />
+            <label for="LPassword">Password<br /></label>
+            <input type="password" name="LPassword" placeholder="Password" required/><br />
 
-            <input class="styledButton" type="submit" value="Login" name="Login">
+            <input class="styledButton" type="submit" value="Login" name="Login" formaction='@Url.Action("Login","Login")'>
         </form>
         <p>Or</p>
-        <button id="switchToR" class="styledButton">Register</button> 
+        <button id="switchToR" class="styledButton">Register</button>
     </section>
-    <section class="registerPanel"></section>
-    <div class="Null"/>
+
+    <section class="registerPanel">
+
+        <form method="post">
+            <label for="fName">Firstname<br /></label>
+            <input type="text" name="fName" placeholder="First name"  required/><br />
+            <label for="lname">Lastname<br /></label>
+            <input type="text" name="lName" placeholder="Last name" required/><br />
+
+            <label for="email">Email:<br /></label>
+            <input type="email" name="Emaíl" placeholder="email@provider.com" required/><br />
+            <label for="email">Password:<br /></label>
+            <input type="password" name="Password" placeholder="Password" required/><br />
+
+            <input class="styledButton" type="submit" value="Register" name="Register" formaction='@Url.Action("Register","Login")'>
+        </form>
+
+        <p>Or</p>
+
+        <button id="switchToL" class="styledButton">Login</button>
+    </section>
+    
 </main>
 <script>
     var LoginPanel = document.querySelector('.loginPanel');
     var RegisterPanel = document.querySelector('.registerPanel');
     function togglePanel() {
         if (LoginPanel.style.display == "none") {
+
             LoginPanel.style.display = "initial";
             RegisterPanel.style.display = "none";
+            
+
+
         }
         else {
             RegisterPanel.style.display = "initial";
             LoginPanel.style.display = "none";
+            
         }
     }
 
-    document.querySelector('.switchToR').addEventListener('click', togglePanel);
+    document.querySelector('#switchToR').addEventListener('click', togglePanel);
+    document.querySelector('#switchToL').addEventListener('click', togglePanel);
 </script>
 

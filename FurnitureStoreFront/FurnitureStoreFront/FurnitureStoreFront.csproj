@@ -105,6 +105,7 @@
     </Compile>
     <Compile Include="Models\Cart\Cart.cs" />
     <Compile Include="Models\Cart\Receipt.cs" />
+    <Compile Include="Models\Files\WorkingWithJSON.cs" />
     <Compile Include="Models\StoreFront\StoreFront.cs" />
     <Compile Include="Models\StoreItem\StoreEnums.cs" />
     <Compile Include="Models\StoreItem\StoreItem.cs" />
@@ -114,7 +115,8 @@
   <ItemGroup>
     <Content Include="Views\web.config" />
     <Content Include="App_Data\_REGISTRY\STORELIST.json" />
-    <Content Include="App_Data\_REGISTRY\CART.json" />
+    <Content Include="App_Data\_USER\CART.json" />
+    <Content Include="App_Data\_REGISTRY\USERLIST.json" />
     <None Include="packages.config" />
     <Content Include="Views\Shared\_LAYOUT.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
@@ -127,9 +129,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\_RECEIPT\" />
-    <Folder Include="App_Data\_USER\" />
-    <Folder Include="Models\Files\" />
+    <Folder Include="App_Data\_USER\_RECEIPTS\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

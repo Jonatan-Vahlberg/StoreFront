@@ -28,17 +28,17 @@ namespace FurnitureStoreFront.Controllers
                 var Email = Request.Form["LEmail"];
                 var Password = Request.Form["LPassword"];
 
-                var CurrentUser = Models.User.Customer.getCustomerData(Email);
+                //var CurrentUser = Models.User.Customer.getCustomerData(Email);
 
-                if (CurrentUser != null)
-                {
-                    if (Models.User.Customer.VerifyHashedPassword(Password, CurrentUser.GetHashedPass(), CurrentUser.GetSalt()))
-                    {
+                //if (CurrentUser != null)
+                //{
+                //    if (Models.User.Customer.VerifyHashedPassword(Password, CurrentUser.GetHashedPass(), CurrentUser.GetSalt()))
+                //    {
 
-                    Session["UserId"] = CurrentUser.id;
-                    return RedirectToAction("Index", "Home");
-                    }
-                }
+                //    Session["UserId"] = CurrentUser.id;
+                //    return RedirectToAction("Index", "Home");
+                //    }
+                //}
             }
             return RedirectToAction("Index", "Login");
         }

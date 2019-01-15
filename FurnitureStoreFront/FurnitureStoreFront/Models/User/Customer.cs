@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Web;
@@ -85,6 +86,8 @@ namespace FurnitureStoreFront.Models.User
             this.Email = Email;
             this.HashedPass = hp;
             this.Salt = s;
+            Directory.CreateDirectory(@"C: \Users\jonat\Source\Repos\StoreFront\FurnitureStoreFront\FurnitureStoreFront\App_Data\_USER\USER" + id);
+            Directory.CreateDirectory(@"C: \Users\jonat\Source\Repos\StoreFront\FurnitureStoreFront\FurnitureStoreFront\App_Data\_USER\USER" + id+@"\_RECEIPTS");
         }
         #endregion
 

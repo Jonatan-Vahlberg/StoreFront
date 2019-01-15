@@ -138,7 +138,7 @@ namespace FurnitureStoreFront.Models.StoreItem
                 this.ChairType = ChairType.LawnChair;
                 return;
             }
-            else
+            else if(room.Equals("Kitchen"))
             {
                 this.ChairType = ChairType.KitchenChair;
                 return;
@@ -153,7 +153,7 @@ namespace FurnitureStoreFront.Models.StoreItem
 
     public class Table : Furniture
     {
-        public uint AreaofTable { get; }
+        public double AreaofTable { get; }
 
         private TableType TableType;
 
@@ -187,7 +187,7 @@ namespace FurnitureStoreFront.Models.StoreItem
             return this.TableType;
         }
 
-        public Table(string name, uint id, uint price, string room, Color colors, Material material, uint areaOfTable) : base(name, id, price, room, colors, material)
+        public Table(string name, uint id, uint price, string room, Color colors, Material material, double areaOfTable) : base(name, id, price, room, colors, material)
         {
             this.AreaofTable = areaOfTable;
         }

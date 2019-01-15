@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LAYOUT.cshtml";
+}
+
+<link href="~/Content/LoginStyle.css" rel="stylesheet" />
+<main>
+    <section class="loginPanel">
+        <form>
+            <label for="email">Email:<br /></label>
+            <input type="email" name="Emaíl" placeholder="email@provider.com" /><br />
+            <label for="email">Password:<br /></label>
+            <input type="password" name="Password" placeholder="Password" /><br />
+
+            <input class="styledButton" type="submit" value="Login" name="Login">
+        </form>
+        <p>Or</p>
+        <button id="switchToR" class="styledButton">Register</button> 
+    </section>
+    <section class="registerPanel"></section>
+    <div class="Null"/>
+</main>
+<script>
+    var LoginPanel = document.querySelector('.loginPanel');
+    var RegisterPanel = document.querySelector('.registerPanel');
+    function togglePanel() {
+        if (LoginPanel.style.display == "none") {
+            LoginPanel.style.display = "initial";
+            RegisterPanel.style.display = "none";
+        }
+        else {
+            RegisterPanel.style.display = "initial";
+            LoginPanel.style.display = "none";
+        }
+    }
+
+    document.querySelector('.switchToR').addEventListener('click', togglePanel);
+</script>
+

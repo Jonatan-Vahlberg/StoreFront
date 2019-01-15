@@ -91,6 +91,7 @@
     <Content Include="Content\Images\pattern.png" />
     <Content Include="Content\Images\pattern_Flipped.png" />
     <Content Include="Content\Images\pattern_Reversed.png" />
+    <Content Include="Content\LoginStyle.css" />
     <Content Include="Content\MainStyle.css" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
@@ -98,16 +99,25 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Cart\Cart.cs" />
+    <Compile Include="Models\Cart\Receipt.cs" />
+    <Compile Include="Models\StoreItem\StoreEnums.cs" />
+    <Compile Include="Models\StoreItem\StoreItem.cs" />
+    <Compile Include="Models\User\Customer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
+    <Content Include="App_Data\_REGISTRY\STORELIST.json" />
+    <Content Include="App_Data\_REGISTRY\CART.json" />
     <None Include="packages.config" />
     <Content Include="Views\Shared\_LAYOUT.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -116,8 +126,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
+    <Folder Include="App_Data\_RECEIPT\" />
+    <Folder Include="App_Data\_USER\" />
+    <Folder Include="Models\Files\" />
+    <Folder Include="Models\StoreFront\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -1,7 +1,9 @@
 ﻿/*Styling for all pages*/
 :root {
-    --Orange-Back: #FF5A00;
-    --Purple-Front: #E40DFF;
+    --Blue-Back: #5E8AF9;
+    --Purple-Front: #FFDD0D;
+    --FontSmall: 'Montserrat', sans-serif;
+    --FontBig: 'lato', sans-serif;
 }
 
 html{
@@ -16,14 +18,14 @@ body {
     display: grid;
     grid-template-Rows: 100px 1fr 100px;
     margin: 0;
-    background-color: var(--Orange-Back);
+    background-color: var(--Blue-Back);
 }
 
-p,a {
-    font-family: 'Montserrat', sans-serif;
+p, a {
+    font-family: var(--FontSmall);
 }
 h1 {
-    font-family: 'lato', sans-serif;
+    font-family: var(--FontBig);
     font-weight: 900;
 }
 header {
@@ -31,8 +33,8 @@ header {
     display: grid;
     grid-template-columns: repeat(4,1fr);
     border-bottom: solid 5px black;
-    background: url(Images/pattern.png)repeat-x;
-    background-color: var(--Orange-Back);
+    background: url(Images/pattern.png)repeat-x; 
+    background-color: var(--Blue-Back);
     color: white;
     text-shadow: 2px 2px black;
 }
@@ -50,14 +52,22 @@ nav {
     text-align: right;
 }
 .styledLink, .styledLink:visited .styledLink:link{
-    font-weight:bold;
+    font-weight:500;
     padding-left:20px;
     text-decoration:none;
     color: #ffffff;
 }
 .styledLink:hover {
-    color: #E40DFF;
+    text-decoration: underline;
+    font-weight: bold;
 }
+.styledButton {
+    font-weight: bold;
+    text-decoration: none;
+    background-color: var(--Purple-Front);
+    color: #ffffff;
+}
+
 .content {
     width: 80%;
     margin: 0 auto;
@@ -68,7 +78,7 @@ footer {
     background: url(Images/pattern_Flipped.png)repeat-x;
     color: #ffffff;
     font-size: 1.4rem;
-    background-color: var(--Orange-Back);
+    background-color: var(--Blue-Back);
     text-shadow: 2px 2px black;
     border-Top: solid 5px black;
 }

@@ -1,1 +1,97 @@
-[]
+[
+  {
+    "$type": "FurnitureStoreFront.Models.StoreItem.Chair, FurnitureStoreFront",
+    "TotalPurchases": 0,
+    "AmountOFChairs": 1,
+    "ChairType": 0,
+    "Name": "Black Kitchen Chair",
+    "id": 1,
+    "Price": 125,
+    "Room": "Kitchen",
+    "Colors": 17,
+    "Material": 1
+  },
+  {
+    "$type": "FurnitureStoreFront.Models.StoreItem.Chair, FurnitureStoreFront",
+    "TotalPurchases": 3,
+    "AmountOFChairs": 1,
+    "ChairType": 0,
+    "Name": "Red Leather Armchair",
+    "id": 2,
+    "Price": 870,
+    "Room": "Livingroom",
+    "Colors": 64,
+    "Material": 4
+  },
+  {
+    "$type": "FurnitureStoreFront.Models.StoreItem.Chair, FurnitureStoreFront",
+    "TotalPurchases": 0,
+    "AmountOFChairs": 4,
+    "ChairType": 0,
+    "Name": "Plastic Lawn chairs",
+    "id": 3,
+    "Price": 45,
+    "Room": "Outdoors",
+    "Colors": 2,
+    "Material": 8
+  },
+  {
+    "$type": "FurnitureStoreFront.Models.StoreItem.Table, FurnitureStoreFront",
+    "TotalPurchases": 7,
+    "AreaofTable": 2.5,
+    "Name": "Dark Oak Writing Desk",
+    "id": 4,
+    "Price": 768,
+    "Room": "Bedroom",
+    "Colors": 16,
+    "Material": 1
+  },
+  {
+    "$type": "FurnitureStoreFront.Models.StoreItem.Table, FurnitureStoreFront",
+    "TotalPurchases": 4,
+    "AreaofTable": 0.8,
+    "Name": "Beige Coffe Table",
+    "id": 5,
+    "Price": 456,
+    "Room": "Livingroom",
+    "Colors": 4,
+    "Material": 1
+  },
+  {
+    "$type": "FurnitureStoreFront.Models.StoreItem.Table, FurnitureStoreFront",
+    "TotalPurchases": 0,
+    "AreaofTable": 6.3,
+    "Name": "Plastic Lawn Table Two Piece",
+    "id": 6,
+    "Price": 199,
+    "Room": "Outdoors",
+    "Colors": 2,
+    "Material": 8
+  },
+  {
+    "$type": "FurnitureStoreFront.Models.StoreItem.Bed, FurnitureStoreFront",
+    "TotalPurchases": 130,
+    "BedWidth": 90,
+    "BedLength": 210,
+    "BedType": 2,
+    "Name": "White Oak Bedframe with Cotton Matress",
+    "id": 7,
+    "Price": 3399,
+    "Room": "Bedroom",
+    "Colors": 18,
+    "Material": 17
+  },
+  {
+    "$type": "FurnitureStoreFront.Models.StoreItem.Bed, FurnitureStoreFront",
+    "TotalPurchases": 5,
+    "BedWidth": 90,
+    "BedLength": 190,
+    "BedType": 3,
+    "Name": "Black Leather Vintage Studiocouch",
+    "id": 8,
+    "Price": 8999,
+    "Room": "Livingroom",
+    "Colors": 128,
+    "Material": 22
+  }
+]

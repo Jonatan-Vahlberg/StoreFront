@@ -14,9 +14,7 @@ namespace FurnitureStoreFront.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            Models.Files.WorkingWithJSON<Models.StoreItem.Furniture>.
-                SaveData(StoreFront.StoreStock, 
-                Models.Files.WorkingWithJSON<Models.StoreItem.Furniture>.StoreListPath);
+            StoreFront.StoreStock = StoreFront.OrderByTotalPurchases();
             return View(StoreFront);
         }
     }

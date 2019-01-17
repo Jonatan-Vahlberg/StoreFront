@@ -9,19 +9,82 @@
 </head>
 <body>
     <header class="mainHeader">
-        <h1 id="logo">Furniture Store</h1>
         <nav>
-            <a href="#" class="styledLink">Home</a>
-            <a href="#" class="checkout styledLink">Checkout</a>
-            <a href="#" class="styledLink">UserPage</a>
+            <a href="#" class="checkout styledLink" id="CartLink">
+                <img src="~/Content/Images/cart.png" alt="cart" >
+                Cart
+            </a>
+            <a href="#" class="styledLink">Log in</a>
         </nav>
+        <h1 id="logo">Deliciae Furniture</h1>
     </header>
+    <div class="sexy-line"></div>
+    <div class="selection">
+        <div  class="rooms">
+            <a id="Bed-link" class="hoverable">BEDROOM</a>
+            <a id="Live-link" class="hoverable">LIVING ROOM</a>
+            <a id="Kitchen-link" class="hoverable">KITCHEN/DININGROOM</a>
+            <a id="Out-link" class="hoverable">OUTDOORS</a>
+        </div>
+
+        <div class="Bed-selection hoverable-sub">
+            <a>Writing Desks</a>
+            <a>Desk Chairs</a>
+            <a>Beds</a>
+        </div>
+        <div class="Living-selection hoverable-sub">
+            <a>Studio Couches</a>
+            <a>Arm Chairs</a>
+            <a>Cofffe Tables</a>
+        </div>
+        <div class="Kitchen-selection hoverable-sub">
+            <a>Dining Tables</a>
+            <a>Dining Chairs</a>
+        </div>
+        <div class="Outdoor-selection hoverable-sub">
+            <a>Lawn Tables</a>
+            <a>Lawn Chairs</a>
+        </div>
+    </div>
     <div class="content">
         @RenderBody()
     </div>
     <footer>
-        <p>Furniture Store &copy;</p>
+        <p>Deliciae Furniture &copy;</p>
         <p>072-456-7832</p>
     </footer>
+    <script>
+
+        var Roomslink = document.querySelectorAll('.hoverable');
+        var RoomDivs = document.querySelectorAll('.hoverable-sub')
+
+        function displaySubCategory() {
+            RoomDivs.forEach(div => {
+                div.classList.remove('displaySub');
+            })
+            switch (this.id) {
+                case 'Bed-link':
+                    document.querySelector(".Bed-selection").classList.add('displaySub');
+                    
+                    break;
+                case 'Live-link':
+                    document.querySelector(".Living-selection").classList.add('displaySub');
+                    break;
+                case 'Kitchen-link':
+                    document.querySelector(".Kitchen-selection").classList.add('displaySub');
+                    break;
+                case 'Out-link':
+                    document.querySelector(".Outdoor-selection").classList.add('displaySub');
+                    break;
+            }
+        }
+        function stopDispayingCategory() {
+            this.classList.remove('displaySub');
+        }
+
+        Roomslink.forEach(room => room.addEventListener('mouseover', displaySubCategory));
+        RoomDivs.forEach(div => div.addEventListener('mouseleave', stopDispayingCategory));
+
+    </script>
 </body>
 </html>

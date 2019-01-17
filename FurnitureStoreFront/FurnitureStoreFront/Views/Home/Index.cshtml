@@ -3,6 +3,44 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LAYOUT.cshtml";
 }
+<link href="~/Content/Homestyle.css" rel="stylesheet" />
 
-<h2>Index</h2>
+<div class="banner">
+    <div class="banner-text">
+        <h1>Get the Chillest Item this Winter</h1>
+        <p>@Model.StoreStock[0].Name</p>
+        <p>For Only @Model.StoreStock[0].Price £</p>
+    </div>
+</div>
+@*<div class="sexy-line"></div>*@
+<div class="topline-products">
+    <h2>Deliciae's Most Purchased Items</h2>
+    <div class="products-container">
+        @for (int i = 0; i < 4; i++)
+        {
+            <div class="topline-product">
+                <img src="https://source.unsplash.com/cPL7CRk4M8M/200x132" alt="@Model.StoreStock[i].Name" />
+                <p><strong>@Model.StoreStock[i].Name</strong></p>
+                <p><strong>@Model.StoreStock[i].Price £</strong></p>
+            </div>
+        }
+    </div>
+</div>
+
+@if (Session["USERID"] != null)
+{
+    <div class="personal-products">
+        <h2>Products's Most Suited For you</h2>
+        <div class="products-container">
+            @for (int i = 0; i < 4; i++)
+            {
+                <div class="topline-product">
+                    <img src="https://source.unsplash.com/cPL7CRk4M8M/200x132" alt="@Model.StoreStock[i].Name" />
+                    <p><strong>@Model.StoreStock[i].Name</strong></p>
+                    <p><strong>@Model.StoreStock[i].Price £</strong></p>
+                </div>
+            }
+        </div>
+    </div>
+}
 

@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Script.Serialization;
+using Newtonsoft.Json;
 
 namespace FurnitureStoreFront.Models.Files
 {
@@ -14,10 +15,26 @@ namespace FurnitureStoreFront.Models.Files
         public static string UserListPath = @"C:\Users\jonat\Source\Repos\StoreFront\FurnitureStoreFront\FurnitureStoreFront\App_Data\_REGISTRY\USERLIST.json";
         
 
-        public static bool SaveData(List<T> list,string AbsolutePath)
+        public static bool SaveData(List<T> list,int Pathchoice)
         {
-            JavaScriptSerializer ser = new JavaScriptSerializer();
-            string json = ser.Serialize(list);
+            string AbsolutePath = string.Empty;
+            switch (Pathchoice)
+            {
+                case 1:
+                    AbsolutePath = StoreListPath;
+                    break;
+                case 2:
+                    AbsolutePath = UserListPath;
+                    break;
+
+            }
+            var settings = new JsonSerializerSettings
+            {
+                TypeNameHandling = TypeNameHandling.Objects,
+                Formatting = Formatting.Indented
+            };
+
+            string json = JsonConvert.SerializeObject(list, settings);
 
             try
             {
@@ -33,9 +50,102 @@ namespace FurnitureStoreFront.Models.Files
             return true;
         }
 
-        public static List<T> GetData(string FilePath)
+        //public static bool SaveData(List<T> list, int Pathchoice)
+        //{
+        //    string AbsolutePath = string.Empty;
+        //    switch (Pathchoice)
+        //    {
+        //        case 1:
+        //            AbsolutePath = StoreListPath;
+        //            break;
+        //        case 2:
+        //            AbsolutePath = UserListPath;
+        //            break;
+
+        //    }
+        //    JavaScriptSerializer ser = new JavaScriptSerializer();
+        //    string json = ser.Serialize(list);
+
+        //    try
+        //    {
+        //        File.WriteAllText(AbsolutePath, json);
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        Console.WriteLine("The file could not be written to:");
+        //        Console.WriteLine(e.Message);
+        //        return false;
+        //    }
+
+        //    return true;
+        //}
+
+        //public static List<T> GetData(int Pathchoice)
+        //{
+        //    string FilePath = string.Empty;
+        //    switch (Pathchoice)
+        //    {
+        //        case 1:
+        //            FilePath = StoreListPath;
+        //            break;
+        //        case 2:
+        //            FilePath = UserListPath;
+        //            break;
+
+        //    }
+        //    JavaScriptSerializer ser = new JavaScriptSerializer();
+
+        //    string json = string.Empty;
+        //    List<T> List = new List<T>();
+
+        //    if (File.Exists(FilePath))
+        //    {
+        //        try
+        //        {
+        //            using (StreamReader sr = new StreamReader(FilePath))
+        //            {
+        //                string line;
+
+        //                while ((line = sr.ReadLine()) != null)
+        //                {
+        //                    json += line;
+        //                }
+        //            }
+        //            List = ser.Deserialize<List<T>>(json);
+        //        }
+        //        catch (Exception e)
+        //        {
+        //            Console.WriteLine("The file could not be read:");
+        //            Console.WriteLine(e.Message);
+        //        }
+        //    }
+        //    else
+        //    {
+        //        CreateJSON(FilePath);
+        //    }
+
+        //    return List;
+        //}
+
+        public static List<T> GetData(int Pathchoice)
         {
-            JavaScriptSerializer ser = new JavaScriptSerializer();
+            string FilePath = string.Empty;
+            switch (Pathchoice)
+            {
+                case 1:
+                    FilePath = StoreListPath;
+                    break;
+                case 2:
+                    FilePath = UserListPath;
+                    break;
+
+            }
+            var settings = new JsonSerializerSettings
+            {
+                TypeNameHandling = TypeNameHandling.Objects,
+                Formatting = Formatting.Indented
+            };
+
             string json = string.Empty;
             List<T> List = new List<T>();
 
@@ -52,7 +162,7 @@ namespace FurnitureStoreFront.Models.Files
                             json += line;
                         }
                     }
-                    List = ser.Deserialize<List<T>>(json);
+                    List = JsonConvert.DeserializeObject<List<T>>(json, settings);
                 }
                 catch (Exception e)
                 {
@@ -62,7 +172,7 @@ namespace FurnitureStoreFront.Models.Files
             }
             else
             {
-                
+                CreateJSON(FilePath);
             }
 
             return List;

@@ -14,7 +14,7 @@ namespace FurnitureStoreFront.Models.StoreItem
         /// <summary>
         /// Name of item
         /// </summary>
-        public string Name { get; }
+        public string Name { get; set; }
 
         /// <summary>
         /// id of the item
@@ -50,7 +50,7 @@ namespace FurnitureStoreFront.Models.StoreItem
         /// Global statistic of item purchase
         /// Used in marketing strategy
         /// </summary>
-        private uint TotalPurchases;
+        public uint TotalPurchases;
         #endregion
 
         #region Public Methods
@@ -100,7 +100,7 @@ namespace FurnitureStoreFront.Models.StoreItem
         /// <param name="room">room of item</param>
         /// <param name="colors">Color or colors of item</param>
         /// <param name="material">material or materials of item</param>
-        protected Furniture(string name, uint id, uint price, string room, Color colors, Material material)
+        public Furniture(string name, uint id, uint price, string room, Color colors, Material material)
         {
             this.Name = name;
             this.id = id;
@@ -109,6 +109,7 @@ namespace FurnitureStoreFront.Models.StoreItem
             this.Colors = colors;
             this.Material = material;
         }
+        
         #endregion
 
     }
@@ -145,9 +146,10 @@ namespace FurnitureStoreFront.Models.StoreItem
             }
         }
 
-        public Chair(string name, uint id, uint price, string room, Color colors, Material material, uint amountOfChairs): base(name, id ,price, room, colors, material)
+        public Chair(string name, uint id, uint price, string room, Color colors, Material material, uint amountOfChairs, uint tp): base(name, id ,price, room, colors, material)
         {
             this.AmountOFChairs = amountOfChairs;
+            this.SetTotalPurchases(true, tp);
         }
     }
 
@@ -187,9 +189,10 @@ namespace FurnitureStoreFront.Models.StoreItem
             return this.TableType;
         }
 
-        public Table(string name, uint id, uint price, string room, Color colors, Material material, double areaOfTable) : base(name, id, price, room, colors, material)
+        public Table(string name, uint id, uint price, string room, Color colors, Material material, double areaOfTable, uint tp) : base(name, id, price, room, colors, material)
         {
             this.AreaofTable = areaOfTable;
+            this.SetTotalPurchases(true, tp);
         }
     }
 
@@ -202,11 +205,12 @@ namespace FurnitureStoreFront.Models.StoreItem
 
         
 
-        public Bed(string name, uint id, uint price, string room, Color colors, Material material, uint bedWidth,uint bedLength,BedType bedType) : base(name, id, price, room, colors, material)
+        public Bed(string name, uint id, uint price, string room, Color colors, Material material, uint bedWidth,uint bedLength,BedType bedType, uint tp) : base(name, id, price, room, colors, material)
         {
             this.BedWidth = bedWidth;
             this.BedLength = bedLength;
             this.BedType = bedType;
+            this.SetTotalPurchases(true, tp);
         }
     }
 

@@ -44,6 +44,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -88,9 +91,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Images\cart.png" />
+    <Content Include="Content\Homestyle.css" />
     <Content Include="Content\Images\pattern.png" />
     <Content Include="Content\Images\pattern_Flipped.png" />
     <Content Include="Content\Images\pattern_Reversed.png" />
+    <Content Include="Content\Images\WhiteCart.png" />
     <Content Include="Content\LoginStyle.css" />
     <Content Include="Content\MainStyle.css" />
     <Content Include="Global.asax" />

@@ -1,6 +1,9 @@
 ﻿/*Styling for all pages*/
+* {
+    font-family: 'Montserrat', sans-serif;
+}
 :root {
-    --Blue-Back: #5E8AF9;
+    --Grey-Back: #514c3c;
     --Purple-Front: #FFDD0D;
     --FontSmall: 'Montserrat', sans-serif;
     --FontBig: 'lato', sans-serif;
@@ -15,10 +18,10 @@ html{
 body {
     width:100%;
     min-height: 100vh;
-    display: grid;
-    grid-template-Rows: 100px 1fr 100px;
+    /*display: grid;*/
+    /*grid-template-Rows: 220px 100px 1fr 100px;*/
     margin: 0;
-    background-color: var(--Blue-Back);
+   
 }
 
 p, a {
@@ -28,37 +31,56 @@ h1 {
     font-family: var(--FontBig);
     font-weight: 900;
 }
+h2, h3, h4 {
+    font-family: var(--FontBig);
+}
+/*HEADER FILES*/
 header {
     grid-row: 0;
     display: grid;
-    grid-template-columns: repeat(4,1fr);
-    border-bottom: solid 5px black;
-    background: url(Images/pattern.png)repeat-x; 
-    background-color: var(--Blue-Back);
-    color: white;
-    text-shadow: 2px 2px black;
+    grid-template-rows: 40px 1fr 40px;
+    grid-template-columns: 1fr 3fr 1fr;
+    
 }
 #logo {
-    grid-column: 1;
-    font-size: 3.5rem;
+    grid-row:2;
+    grid-column: 2;
+    font-size: 4.0rem;
     margin-right: 30px;
+    text-align:center;
     
 }
 nav {
-    margin: auto 0;
-    margin-right: 30px;
-    grid-column: 2/5;
-    font-size: 2.8rem;
+    
+    grid-column: 2;
+    grid-row: 1;
+    display: inline;
+    float:right;
+    font-size: 1.8rem;
     text-align: right;
 }
+nav a{
+    display:inline;
+}
+#CartLink{
+    
+}
+#CartLink img {
+    width: 1.8rem;
+}
+/*Header END*/
+
+
 .styledLink, .styledLink:visited .styledLink:link{
     font-weight:500;
     padding-left:20px;
     text-decoration:none;
-    color: #ffffff;
+    color: #000;
+    
+    
 }
 .styledLink:hover {
-    text-decoration: underline;
+    
     font-weight: bold;
 }
 .styledButton {
@@ -67,18 +89,65 @@ nav {
     background-color: var(--Purple-Front);
     color: #ffffff;
 }
+.sexy-line {
+    margin: 10px 0;
+    height: 1px;
+    background: var(--Grey-Back);
+    background: -webkit-gradient(linear, 0 0, 100% 0, from(white), to(white), color-stop(50%, var(--Grey-Back)));
+}
+/*Filter selection*/
+.rooms {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    font-size: 1.8rem;
+    text-align:center;
 
-.content {
-    width: 80%;
-    margin: 0 auto;
-    background-color: white;
+    margin: 30px 0px 20px 0px;
     
 }
+.hoverable:not(#Out-link) {
+    border-right: solid 0.5px var(--Grey-Back);
+}
+.hoverable-sub{
+    display:none;
+    width:100%;
+    text-align:center;
+    height:50px;
+    font-size: 1.6rem;
+    background-color: var(--Grey-Back);
+    color: white;
+    
+}
+.displaySub{
+    display:grid;
+    grid-template-rows: 0.5fr 1fr 0.5fr; 
+    
+}
+.displaySub a{
+    grid-row: 2;
+}
+
+.displaySub.Bed-selection, .displaySub.Living-selection {
+    grid-template-columns: 1fr 1fr 1fr;
+}
+.displaySub.Kitchen-selection, .displaySub.Outdoor-selection {
+    grid-template-columns: 1fr 1fr;
+}
+/*Filter End*/
+
+.content {
+    width: 100%;
+    min-height: 50vh;
+    margin: 0 auto;
+    background-color: white;
+}
+/*Footer*/
 footer {
-    background: url(Images/pattern_Flipped.png)repeat-x;
-    color: #ffffff;
+    
     font-size: 1.4rem;
-    background-color: var(--Blue-Back);
-    text-shadow: 2px 2px black;
     border-Top: solid 5px black;
+    
+}
+footer p{
+    margin-left: 10px;
 }

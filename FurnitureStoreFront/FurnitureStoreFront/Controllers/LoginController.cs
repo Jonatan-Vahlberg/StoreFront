@@ -8,17 +8,20 @@ namespace FurnitureStoreFront.Controllers
 {
     public class LoginController : Controller
     {
+        public Models.StoreFront.StoreFront StoreFront = new Models.StoreFront.StoreFront();
+
+
         // GET: Login
         public ActionResult Index()
         {
-            return View();
+            return View(StoreFront);
         }
 
         public ActionResult Register()
         {
 
-            
-            return RedirectToAction("Index", "Login");
+            Models.Files.WorkingWithJSON<Models.StoreItem.Furniture>.SaveData(StoreFront.StoreStock,1);
+            return RedirectToAction("Index", "Home");
         }
 
         public ActionResult Login()

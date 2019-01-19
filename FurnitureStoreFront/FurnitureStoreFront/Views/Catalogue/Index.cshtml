@@ -1,0 +1,50 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LAYOUT.cshtml";
+}
+<link href="~/Content/Homestyle.css" rel="stylesheet" />
+<h2>@Model.Searchstring</h2>
+@if (Model.SearchInt < 5)
+{
+    foreach (var item in Model.StoreStock)
+
+    {
+        if ((Model.SearchInt == 0) ||
+            (Model.SearchInt == 1 && item.Room == "Bedroom") || 
+            (Model.SearchInt == 2 && item.Room == "Livingroom") ||
+            (Model.SearchInt == 3 && item.Room == "Kitchen") ||
+            (Model.SearchInt == 4 && item.Room == "Outdoors"))
+        {
+
+            <div class="filterd-product">
+                <a href="">
+                    <img class="product-img" src="~/Content/Images/@item.ImageLink" alt="@item.Name" />
+                </a>
+                <p class="topline-name"><strong>@item.Name</strong></p>
+                <p>Price: @item.Price £</p>
+            </div>
+        }
+        
+    }
+}
+else
+{
+
+    foreach (var item in Model.StoreStock)
+
+    {
+        if (Model.SearchInt == item.TagInt)
+        {
+
+            <div class="topline-product">
+                <a href="">
+                    <img class="product-img" src="~/Content/Images/@item.ImageLink" alt="@item.Name" />
+                </a>
+                <p class="topline-name"><strong>@item.Name</strong></p>
+                <p>Price: @item.Price £</p>
+            </div>
+        }
+    }
+}
+

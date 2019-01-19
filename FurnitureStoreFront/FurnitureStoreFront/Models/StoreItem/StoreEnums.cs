@@ -11,7 +11,7 @@ namespace FurnitureStoreFront.Models.StoreItem
         White = 2,
         Beige = 4,
         Wood = 8,
-        Darkwood = 16,
+        DarkWood = 16,
         Silvermetal = 32,
         VintageRed = 64,
         VintageBlack = 128
@@ -40,7 +40,7 @@ namespace FurnitureStoreFront.Models.StoreItem
     {
         KitchenTable = 1,
         LawnTable,
-        WirtingDesk,
+        WritingDesk,
         CoffeTable
     }
 
@@ -49,5 +49,32 @@ namespace FurnitureStoreFront.Models.StoreItem
         Queensizedbed = 1,
         Twinsizedbed,
         Studicouch,
+    }
+
+    public class EnumMethods
+    {
+        public static string imageLink(Color color, Material material,string type, int typeInt)
+        {
+            string ColorString = Enum.GetName(typeof(Color), color);
+            string MaterialString = Enum.GetName(typeof(Material), material);
+            string TypeString = "";
+            if (type.Equals("Chair"))
+            {
+                ChairType ct = (ChairType)typeInt;
+                TypeString = Enum.GetName(typeof(ChairType),ct);
+            }
+            else if (type.Equals("Table"))
+            {
+                TableType tt = (TableType)typeInt;
+                TypeString = Enum.GetName(typeof(TableType), tt);
+            }
+            else if (type.Equals("Bed"))
+            {
+                BedType bt = (BedType)typeInt;
+                TypeString = Enum.GetName(typeof(BedType), bt);
+            }
+
+            return $"{ColorString}_{MaterialString}_{TypeString}.jpg";
+        }
     }
 }

@@ -5,19 +5,8 @@ namespace FurnitureStoreFront.Models.Cart
 {
     public class Cart
     {
-        
-        public string finalPrice { get; set; }
-        List<CartItem> CartItems = new List<CartItem>();
-    }
 
-    public class CartItem
-    {
-        public StoreItem.Furniture StoreItem;
-        public int AmountofItem { get; set; }
-
-        public CartItem(StoreItem.Furniture storeItem)
-        {
-            this.StoreItem = storeItem;
-        }
+        public int finalPrice { get; set; } = 0;
+        public Dictionary<StoreItem.Furniture, int> Cartitems = new Dictionary<StoreItem.Furniture, int>();
     }
 }

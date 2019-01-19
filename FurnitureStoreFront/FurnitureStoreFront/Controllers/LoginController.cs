@@ -19,9 +19,25 @@ namespace FurnitureStoreFront.Controllers
 
         public ActionResult Register()
         {
+            if (HttpContext.Request.RequestType == "POST")
+            {
+                string Password = Request.Form["RPassword"];
 
-            Models.Files.WorkingWithJSON<Models.StoreItem.Furniture>.SaveData(StoreFront.StoreStock,1);
-            return RedirectToAction("Index", "Home");
+                if (Models.User.Customer.InitialPasswordCheck(Password))
+                {
+                    string salt = Models.User.Customer.CreateSalt(8);
+                    string HashedPassword = Models.User.Customer.GenerateSHA256Hash(Password, salt);
+                    string fname = Request.Form["fName"];
+                    string lname = Request.Form["lName"];
+                    string Email = Request.Form["REmail"];
+
+                    StoreFront.CustomerList.Add(new Models.User.Customer(StoreFront.CustomerList.Count + 1, fname, lname, Email, HashedPassword, salt));
+                    Session["UserId"] = (StoreFront.CustomerList.Count);
+                    Models.Files.WorkingWithJSON<Models.User.Customer>.SaveData(StoreFront.CustomerList, 2);
+                    return RedirectToAction("Index", "Home");
+                }
+            }
+            return RedirectToAction("Index", "Login");
         }
 
         public ActionResult Login()
@@ -31,19 +47,21 @@ namespace FurnitureStoreFront.Controllers
                 var Email = Request.Form["LEmail"];
                 var Password = Request.Form["LPassword"];
 
-                //var CurrentUser = Models.User.Customer.getCustomerData(Email);
+                var CurrentUser = Models.User.Customer.getCustomerData(Email,StoreFront.CustomerList);
 
-                //if (CurrentUser != null)
-                //{
-                //    if (Models.User.Customer.VerifyHashedPassword(Password, CurrentUser.GetHashedPass(), CurrentUser.GetSalt()))
-                //    {
+                if (CurrentUser != null)
+                {
+                    if (Models.User.Customer.VerifyHashedPassword(Password, CurrentUser.GetHashedPass(), CurrentUser.GetSalt()))
+                    {
 
-                //    Session["UserId"] = CurrentUser.id;
-                //    return RedirectToAction("Index", "Home");
-                //    }
-                //}
+                        Session["UserId"] = CurrentUser.id;
+                        Models.Files.WorkingWithJSON<Models.User.Customer>.SaveData(StoreFront.CustomerList, 2);
+                        return RedirectToAction("Index", "Home");
+                    }
+                }
             }
-            return RedirectToAction("Index", "Login");
+            Models.Files.WorkingWithJSON<Models.User.Customer>.SaveData(StoreFront.CustomerList,2);
+            return RedirectToAction("Index","Login");
         }
 
         //public ActionResult Login()

@@ -18,10 +18,13 @@
     <div class="products-container">
         @for (int i = 0; i < 4; i++)
         {
+            
             <div class="topline-product">
-                <img src="https://source.unsplash.com/cPL7CRk4M8M/200x132" alt="@Model.StoreStock[i].Name" />
-                <p><strong>@Model.StoreStock[i].Name</strong></p>
-                <p><strong>@Model.StoreStock[i].Price £</strong></p>
+                <a href="">
+                    <img class="product-img" src="~/Content/Images/@Model.StoreStock[i].ImageLink" alt="@Model.StoreStock[i].Name" />
+                </a>
+                <p class="topline-name"><strong>@Model.StoreStock[i].Name</strong></p>
+                <p>Price: @Model.StoreStock[i].Price £</p>
             </div>
         }
     </div>
@@ -34,13 +37,18 @@
         <div class="products-container">
             @for (int i = 0; i < 4; i++)
             {
+
                 <div class="topline-product">
-                    <img src="https://source.unsplash.com/cPL7CRk4M8M/200x132" alt="@Model.StoreStock[i].Name" />
-                    <p><strong>@Model.StoreStock[i].Name</strong></p>
-                    <p><strong>@Model.StoreStock[i].Price £</strong></p>
+                    <a href="">
+                        <img class="product-img" src="~/Content/Images/@Model.StoreStock[i].ImageLink" alt="@Model.StoreStock[i].Name" />
+                    </a>
+                    <p class="topline-name"><strong>@Model.StoreStock[i].Name</strong></p>
+                    <p>Price: @Model.StoreStock[i].Price £</p>
                 </div>
             }
         </div>
     </div>
+    <div class="sexy-line"></div>
+    <a class="styledLink">View The Entire Catalouge Of Products</a>
 }
 

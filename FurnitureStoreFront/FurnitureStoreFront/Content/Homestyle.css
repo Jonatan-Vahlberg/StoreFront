@@ -49,4 +49,11 @@
     width: 60%;
     text-align:center;
 }
+.product-img{
+    width: 200px;
+    height: 132px;
+}
+.topline-name {
+    height: 40px;
+}
 

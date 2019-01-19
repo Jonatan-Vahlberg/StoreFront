@@ -10,40 +10,114 @@
 <body>
     <header class="mainHeader">
         <nav>
-            <a href="#" class="checkout styledLink" id="CartLink">
+            <a href="~/Cart/Index" class="checkout styledLink" id="CartLink">
                 <img src="~/Content/Images/cart.png" alt="cart" >
                 Cart
             </a>
-            <a href="#" class="styledLink">Log in</a>
+            @if (Session["UserId"] == null || (int)Session["UserId"] == 0)
+            {
+            <div class="loginBox-outer">
+                <a href="#" class="styledLink clickLink">Log in</a><br/>
+                <div class="loginBox" style="display:none">
+                    <form method="post">
+                        <input type="email" placeholder="Email@provider.com" name="LEmail" required/><br />
+                        <input type="password" placeholder="Password" name="LPassword" required/><br />
+                        <input type="submit" value="Login" class="LogInButton" formaction="@Url.Action("Login", "Login")" />
+                    </form>
+                    <a href="@Url.Action("Index", "Login")" class="styledLink small">Or Register</a>
+                </div>
+            </div>
+
+            }
+            else
+            {
+
+                <div class="logedinbox">
+                    <a><img src="~/Content/Images/pattern.png" class="profile-img" />@Model.CustomerList[(int)(Session["UserId"])-1].Firstname</a>
+                </div>
+            }
         </nav>
-        <h1 id="logo">Deliciae Furniture</h1>
+        <a href="~/Home/Index" class="styledLink" id="logo">
+        <h1 >Deliciae Furniture</h1>
+        </a>
     </header>
     <div class="sexy-line"></div>
     <div class="selection">
-        <div  class="rooms">
-            <a id="Bed-link" class="hoverable">BEDROOM</a>
-            <a id="Live-link" class="hoverable">LIVING ROOM</a>
-            <a id="Kitchen-link" class="hoverable">KITCHEN/DININGROOM</a>
-            <a id="Out-link" class="hoverable">OUTDOORS</a>
+        <div class="rooms">
+            
+                <form method="post"  id="Bed-link"  class="hoverable">
+                    <input name="Room" type="number" value="1" readonly style="display:none" />
+                    <input class="submit" type="submit" value="BEDROOM" formaction="@Url.Action("index","Catalogue")" />
+                </form>
+           
+            
+            
+                <form method="post"  id="Live-link" class="hoverable">
+                    <input name="Room" type="number" value="2" readonly style="display:none" />
+                    <input type="submit"  class="submit" value="LIVINGROOM" formaction="@Url.Action("index","Catalogue")" />
+                </form>
+           
+            
+                <form method="post" id="Kitchen-link" class="hoverable">
+                    <input name="Room" type="number" value="3" readonly style="display:none" />
+                    <input type="submit"  class="submit" value="KITCHEN" formaction="@Url.Action("index","Catalogue")" />
+                </form>
+           
+            
+                <form method="post" id="Out-link" class="hoverable">
+                    <input name="Room" type="number" value="4" readonly style="display:none" />
+                    <input type="submit"  class="submit" value="OUTDOORS" formaction="@Url.Action("index","Catalogue")" />
+                </form>
+            
         </div>
 
         <div class="Bed-selection hoverable-sub">
-            <a>Writing Desks</a>
-            <a>Desk Chairs</a>
-            <a>Beds</a>
+            <form method="post">
+                <input name="Room" type="number" value="12" readonly style="display:none" />
+                <input class="submit small" type="submit" value="Writing Desks" formaction="@Url.Action("index","Catalogue")" />
+            </form>
+            <form method="post">
+                <input name="Room" type="number" value="11" readonly style="display:none" />
+                <input class="submit small" type="submit" value="Desk Chairs" formaction="@Url.Action("index","Catalogue")" />
+            </form>
+            <form method="post">
+                <input name="Room" type="number" value="13" readonly style="display:none" />
+                <input class="submit" type="submit" value="Beds" formaction="@Url.Action("index","Catalogue")" />
+            </form>
         </div>
         <div class="Living-selection hoverable-sub">
-            <a>Studio Couches</a>
-            <a>Arm Chairs</a>
-            <a>Cofffe Tables</a>
+            <form method="post">
+                <input name="Room" type="number" value="22" readonly style="display:none" />
+                <input class="submit small" type="submit" value="Coffe Tables" formaction="@Url.Action("index","Catalogue")" />
+            </form>
+            <form method="post">
+                <input name="Room" type="number" value="21" readonly style="display:none" />
+                <input class="submit small" type="submit" value="Arm Chairs" formaction="@Url.Action("index","Catalogue")" />
+            </form>
+            <form method="post">
+                <input name="Room" type="number" value="23" readonly style="display:none" />
+                <input class="submit" type="submit" value="Studio Couches" formaction="@Url.Action("index","Catalogue")" />
+            </form>
         </div>
         <div class="Kitchen-selection hoverable-sub">
-            <a>Dining Tables</a>
-            <a>Dining Chairs</a>
+            <form method="post">
+                <input name="Room" type="number" value="32" readonly style="display:none" />
+                <input class="submit small" type="submit" value="Dining Tables" formaction="@Url.Action("index","Catalogue")" />
+            </form>
+            <form method="post">
+                <input name="Room" type="number" value="31" readonly style="display:none" />
+                <input class="submit small" type="submit" value="Dining Chairs" formaction="@Url.Action("index","Catalogue")" />
+            </form>
         </div>
         <div class="Outdoor-selection hoverable-sub">
-            <a>Lawn Tables</a>
-            <a>Lawn Chairs</a>
+            <form method="post">
+                <input name="Room" type="number" value="42" readonly style="display:none" />
+                <input class="submit small" type="submit" value="Lawn Tables" formaction="@Url.Action("index","Catalogue")" />
+            </form>
+            <form method="post">
+                <input name="Room" type="number" value="41" readonly style="display:none" />
+                <input class="submit small" type="submit" value="Lawn Chairs" formaction="@Url.Action("index","Catalogue")" />
+            </form>
         </div>
     </div>
     <div class="content">
@@ -53,8 +127,9 @@
         <p>Deliciae Furniture &copy;</p>
         <p>072-456-7832</p>
     </footer>
-    <script>
 
+    <script>
+        var Login = document.querySelector('.clickLink')
         var Roomslink = document.querySelectorAll('.hoverable');
         var RoomDivs = document.querySelectorAll('.hoverable-sub')
 
@@ -78,11 +153,28 @@
                     break;
             }
         }
+
         function stopDispayingCategory() {
             this.classList.remove('displaySub');
         }
 
+        function setRoomValue() {
+            if (this.id == "Bed-link") @(TempData["Filter"] = "1")
+        }
+
+        Login.addEventListener('click', () => {
+            if (document.querySelector('.loginBox').style.display == 'none' ) {
+
+                document.querySelector('.loginBox').style.display = "initial";
+
+
+            } else {
+
+                document.querySelector('.loginBox').style.display = "none";
+            }
+        });
         Roomslink.forEach(room => room.addEventListener('mouseover', displaySubCategory));
+        RoomsLink.forEach(room => room.addEventListener('click', SetRoomValue));
         RoomDivs.forEach(div => div.addEventListener('mouseleave', stopDispayingCategory));
 
     </script>

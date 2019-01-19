@@ -11,12 +11,18 @@ namespace FurnitureStoreFront.Models.StoreFront
 
     public class StoreFront
     {
-        
-
+        /// <summary>
+        /// A string for filtering results in the catalogue
+        /// </summary>
+        public string Searchstring { get; set; }
+        /// <summary>
+        /// Apart of the filtering process
+        /// </summary>
+        public int SearchInt { get; set; }
         /// <summary>
         /// List of all customers dragged from JSON file
         /// </summary>
-        public List<User.Customer> CustomerList = User.Customer.getUsers();
+        public List<User.Customer> CustomerList = Files.WorkingWithJSON<User.Customer>.GetData(2);
 
         /// <summary>
         /// List of all Store items dragged from JSON file

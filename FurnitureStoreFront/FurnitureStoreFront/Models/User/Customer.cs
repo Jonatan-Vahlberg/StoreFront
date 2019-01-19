@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Web;
+using Newtonsoft.Json;
 
 namespace FurnitureStoreFront.Models.User
 {
@@ -29,11 +30,11 @@ namespace FurnitureStoreFront.Models.User
         /// <summary>
         /// The hashed version of the customers password stored for safety
         /// </summary>
-        private string HashedPass { get; }
+        public string HashedPass { get; }
         /// <summary>
         /// Salt for the password of the customer
         /// </summary>
-        private string Salt { get;}
+        public string Salt { get;}
         
         /// <summary>
         /// A Dictonary containing filling out the statistics for a Customerr
@@ -79,15 +80,16 @@ namespace FurnitureStoreFront.Models.User
         /// <param name="email">Inputted Email</param>
         /// <param name="hp">The hashed password</param>
         /// <param name="s">the salt of the password</param>
-        public Customer(int id, string fn,string ln, string email,string hp,string s)
+        [JsonConstructor]
+        public Customer(int id, string firstname,string lastname, string email,string hashedPass, string salt)
         {
-            this.Firstname = fn;
-            this.Lastname = ln;
-            this.Email = Email;
-            this.HashedPass = hp;
-            this.Salt = s;
-            Directory.CreateDirectory(@"C: \Users\jonat\Source\Repos\StoreFront\FurnitureStoreFront\FurnitureStoreFront\App_Data\_USER\USER" + id);
-            Directory.CreateDirectory(@"C: \Users\jonat\Source\Repos\StoreFront\FurnitureStoreFront\FurnitureStoreFront\App_Data\_USER\USER" + id+@"\_RECEIPTS");
+            this.id = id;
+            this.Firstname = firstname;
+            this.Lastname = lastname;
+            this.Email = email;
+            this.HashedPass = hashedPass;
+            this.Salt = salt;
+            
         }
         #endregion
 
@@ -192,6 +194,8 @@ namespace FurnitureStoreFront.Models.User
             List<Customer> c = new List<Customer>();
             string salt = CreateSalt(8);
             c.Add(new Customer (1,"ADMIN", "ACC", "Email@provider.com",GenerateSHA256Hash("P4ssword",salt),salt));
+            salt = CreateSalt(8);
+            c.Add(new Customer (2,"Markus", "Sontag", "Markus@Sontag.com",GenerateSHA256Hash("M4rkassBrown",salt),salt));
 
             return c;
         }
@@ -216,7 +220,7 @@ namespace FurnitureStoreFront.Models.User
         /// <returns></returns>
         public static bool InitialPasswordCheck(string password)
         {
-            if(password.Length < 8 )
+            if(password.Length >= 8 )
             {
                 if ((password.Any(char.IsUpper)) && (password.Any(char.IsNumber)))
                 {

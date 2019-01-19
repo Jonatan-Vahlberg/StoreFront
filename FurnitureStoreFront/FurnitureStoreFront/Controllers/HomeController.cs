@@ -14,6 +14,8 @@ namespace FurnitureStoreFront.Controllers
         // GET: Home
         public ActionResult Index()
         {
+            TempData["Filter"] = "";
+            //Session["USERID"] = 1;
             StoreFront.StoreStock = StoreFront.OrderByTotalPurchases();
             return View(StoreFront);
         }

@@ -44,13 +44,18 @@ namespace FurnitureStoreFront.Models.StoreItem
         /// <summary>
         /// Type of furniture set in constructor and acsessed in program from get Method
         /// </summary>
-        protected string TypeOfFurniture { get; set; }
+        public string TypeOfFurniture { get; set; }
 
         /// <summary>
         /// Global statistic of item purchase
         /// Used in marketing strategy
         /// </summary>
         public uint TotalPurchases;
+
+        public int TagInt { get; set; }
+
+
+        public string ImageLink { get; set; }
         #endregion
 
         #region Public Methods
@@ -127,21 +132,27 @@ namespace FurnitureStoreFront.Models.StoreItem
             if (room.Equals("Bedroom"))
             {
                 this.ChairType = ChairType.DeskChair;
+                this.TagInt = 11;
                 return;
             }
             else if (room.Equals("Livingroom"))
             {
                 this.ChairType = ChairType.ArmChair;
+                this.TagInt = 21;
+
                 return;
             }
             else if (room.Equals("Outdoors"))
             {
                 this.ChairType = ChairType.LawnChair;
+                this.TagInt = 41;
                 return;
             }
             else if(room.Equals("Kitchen"))
             {
                 this.ChairType = ChairType.KitchenChair;
+                this.TagInt = 31;
+
                 return;
             }
         }
@@ -149,7 +160,10 @@ namespace FurnitureStoreFront.Models.StoreItem
         public Chair(string name, uint id, uint price, string room, Color colors, Material material, uint amountOfChairs, uint tp): base(name, id ,price, room, colors, material)
         {
             this.AmountOFChairs = amountOfChairs;
+            this.TypeOfFurniture = "Chair";
+            SetChairType(this.Room);
             this.SetTotalPurchases(true, tp);
+            this.ImageLink = StoreItem.EnumMethods.imageLink(this.Colors, this.Material,"Chair", (int)this.ChairType);
         }
     }
 
@@ -157,29 +171,36 @@ namespace FurnitureStoreFront.Models.StoreItem
     {
         public double AreaofTable { get; }
 
-        private TableType TableType;
+        public TableType TableType;
 
-        private void SetTableType(string room)
+        protected void SetTableType(string room)
         {
             if (room.Equals("Bedroom"))
             {
-                this.TableType = TableType.WirtingDesk;
+                this.TableType = TableType.WritingDesk;
+                this.TagInt = 12;
 
                 return;
             }
             else if (room.Equals("Livingroom"))
             {
                 this.TableType = TableType.CoffeTable;
+                this.TagInt = 22;
+
                 return;
             }
             else if (room.Equals("Outdoors"))
             {
                 this.TableType = TableType.LawnTable;
+                this.TagInt = 32;
+
                 return;
             }
             else
             {
                 this.TableType = TableType.KitchenTable;
+                this.TagInt = 42;
+
                 return;
             }
         }
@@ -192,7 +213,12 @@ namespace FurnitureStoreFront.Models.StoreItem
         public Table(string name, uint id, uint price, string room, Color colors, Material material, double areaOfTable, uint tp) : base(name, id, price, room, colors, material)
         {
             this.AreaofTable = areaOfTable;
+            this.TypeOfFurniture = "Table";
+            SetTableType(this.Room);
             this.SetTotalPurchases(true, tp);
+            this.ImageLink = StoreItem.EnumMethods.imageLink(this.Colors, this.Material, "Table", (int)this.TableType);
+
+
         }
     }
 
@@ -210,7 +236,20 @@ namespace FurnitureStoreFront.Models.StoreItem
             this.BedWidth = bedWidth;
             this.BedLength = bedLength;
             this.BedType = bedType;
+            this.TypeOfFurniture = "Bed";
             this.SetTotalPurchases(true, tp);
+            if(this.BedType == BedType.Studicouch)
+            {
+                this.TagInt = 23;
+
+            }
+            else
+            {
+                this.TagInt = 13;
+            }
+            this.ImageLink = StoreItem.EnumMethods.imageLink(this.Colors, this.Material, "Bed", (int)this.BedType);
+
+
         }
     }
 

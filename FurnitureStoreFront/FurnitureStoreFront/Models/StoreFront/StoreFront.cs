@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using FurnitureStoreFront.Models;
+using FurnitureStoreFront.Models.Cart;
 
 namespace FurnitureStoreFront.Models.StoreFront
 {
@@ -22,7 +23,11 @@ namespace FurnitureStoreFront.Models.StoreFront
         /// <summary>
         /// List of all customers dragged from JSON file
         /// </summary>
-        public List<User.Customer> CustomerList = Files.WorkingWithJSON<User.Customer>.GetData(2);
+        public static List<User.Customer> CustomerList = Files.WorkingWithJSON<User.Customer>.GetData(2);
+
+
+
+        public List<Cart.CartItem> CustomerCart = new List<CartItem>();
 
         /// <summary>
         /// List of all Store items dragged from JSON file
@@ -69,5 +74,7 @@ namespace FurnitureStoreFront.Models.StoreFront
             return newList;
             
         }
+
+        
     }
 }

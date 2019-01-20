@@ -58,13 +58,6 @@ namespace FurnitureStoreFront.Models.User
         }
 
         /// <summary>
-        /// Customer cart ie the items that are primed for purchase
-        /// The cart can contain <see cref="Cart.CartItem"/> items
-        /// and a Total price
-        /// </summary>
-        public Cart.Cart Cart = new Cart.Cart();
-
-        /// <summary>
         /// These are purchases that have been handeld and processed
         /// </summary>
         public List<Cart.Receipt> previousPurchases = new List<Cart.Receipt>();

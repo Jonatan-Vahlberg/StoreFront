@@ -1,0 +1,11 @@
+{
+  "$type": "System.Collections.Generic.Dictionary`2[[System.Int32, mscorlib],[FurnitureStoreFront.Models.Cart.Cart, FurnitureStoreFront]], mscorlib",
+  "1": {
+    "$type": "FurnitureStoreFront.Models.Cart.Cart, FurnitureStoreFront",
+    "Cartitems": {
+      "$type": "System.Collections.Generic.Dictionary`2[[FurnitureStoreFront.Models.StoreItem.Furniture, FurnitureStoreFront],[System.Int32, mscorlib]], mscorlib",
+      "FurnitureStoreFront.Models.StoreItem.Chair": 1
+    },
+    "finalPrice": 0
+  }
+}

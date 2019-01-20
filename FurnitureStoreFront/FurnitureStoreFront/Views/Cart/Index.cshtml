@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LAYOUT.cshtml";
+    
+    TempData["Page"] = "Cart";
+
+
+}
+<link href="~/Content/CartStyle.css" rel="stylesheet" />
+<h1>Cart</h1>
+
+<div class="sexy-line"></div>
+
+<div class="CartArea">
+    @if(Model.CustomerCart != null)
+    {
+        foreach(var item in Model.CustomerCart)
+        {
+            <div class="cartItem">
+                <img src="~/Content/Images/@item.ImageLink" />
+                <p class="itemName">@item.Name</p>
+                <p class="itemPrice">Price: @item.Price * @item.Quantity = @(item.Price * item.Quantity) £</p>
+                <div class="itemAmount">
+                    <a class="styledLink" href="~/Cart/QuantityChanged?operand=-&id=@item.Id">-</a>
+                    <input readonly type="number" value="@item.Quantity" min="1" />
+                    <a class="styledLink" href="~/Cart/QuantityChanged?operand=P&id=@item.Id">+</a>
+
+
+                </div>  
+            </div>
+        }
+        <h3>Totaling: @FurnitureStoreFront.Models.Cart.CartItem.FinalPrice £</h3>
+    }
+</div>
+

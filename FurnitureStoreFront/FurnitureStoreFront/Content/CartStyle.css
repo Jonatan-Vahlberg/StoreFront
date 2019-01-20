@@ -1,0 +1,48 @@
+﻿body {
+}
+
+.cartItem{
+    height: 150px;
+    display: grid;
+    grid-template-columns: 200px 0.5fr 20px 1fr;
+    grid-template-rows: 1fr 1fr ;
+    margin: 20px 0 20px 30px; 
+}
+.cartItem img{
+    height: 150px;
+    grid-row: 1/3;
+    grid-column:1;
+}
+
+.cartItem .itemName, .cartItem .itemPrice{
+    grid-column:2;
+    font-size: 1.3rem;
+    margin-left: 50px;
+}
+.cartItem .itemName{
+    grid-row:1;
+
+}
+.cartItem .itemPrice{
+    grid-row:2;
+
+}
+.cartItem .itemAmount{
+    grid-column: 4;
+    grid-row: 1/3;
+    
+    align-self:center;
+    justify-self:flex-end;
+    font-size:2.5rem;
+}
+.itemAmount a {
+    padding: 0 10px;
+    align-self: center;
+}
+.itemAmount input {
+    padding: 5px;
+    border: none;
+    font-size: 1.8rem;
+    text-align:center;
+}
+

@@ -31,9 +31,10 @@ namespace FurnitureStoreFront.Controllers
                     string lname = Request.Form["lName"];
                     string Email = Request.Form["REmail"];
 
-                    StoreFront.CustomerList.Add(new Models.User.Customer(StoreFront.CustomerList.Count + 1, fname, lname, Email, HashedPassword, salt));
-                    Session["UserId"] = (StoreFront.CustomerList.Count);
-                    Models.Files.WorkingWithJSON<Models.User.Customer>.SaveData(StoreFront.CustomerList, 2);
+                   Models.StoreFront.StoreFront.CustomerList.Add(new Models.User.Customer(Models.StoreFront.StoreFront.CustomerList.Count + 1, fname, lname, Email, HashedPassword, salt));
+                    Session["UserId"] = (Models.StoreFront.StoreFront.CustomerList.Count);
+                    Models.Files.WorkingWithJSON<Models.User.Customer>.SaveData(Models.StoreFront.StoreFront.CustomerList, 2);
+                    Models.Files.WorkingWithJSON<Models.User.Customer>.CreateJSON(Models.StoreFront.StoreFront.CustomerList.Count);
                     return RedirectToAction("Index", "Home");
                 }
             }
@@ -47,7 +48,7 @@ namespace FurnitureStoreFront.Controllers
                 var Email = Request.Form["LEmail"];
                 var Password = Request.Form["LPassword"];
 
-                var CurrentUser = Models.User.Customer.getCustomerData(Email,StoreFront.CustomerList);
+                var CurrentUser = Models.User.Customer.getCustomerData(Email, Models.StoreFront.StoreFront.CustomerList);
 
                 if (CurrentUser != null)
                 {
@@ -55,12 +56,12 @@ namespace FurnitureStoreFront.Controllers
                     {
 
                         Session["UserId"] = CurrentUser.id;
-                        Models.Files.WorkingWithJSON<Models.User.Customer>.SaveData(StoreFront.CustomerList, 2);
+                        Models.Files.WorkingWithJSON<Models.User.Customer>.SaveData(Models.StoreFront.StoreFront.CustomerList, 2);
                         return RedirectToAction("Index", "Home");
                     }
                 }
             }
-            Models.Files.WorkingWithJSON<Models.User.Customer>.SaveData(StoreFront.CustomerList,2);
+            Models.Files.WorkingWithJSON<Models.User.Customer>.SaveData(Models.StoreFront.StoreFront.CustomerList,2);
             return RedirectToAction("Index","Login");
         }
 

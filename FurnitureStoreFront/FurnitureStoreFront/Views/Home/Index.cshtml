@@ -2,6 +2,8 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LAYOUT.cshtml";
+    TempData["Page"] = "Home";
+
 }
 <link href="~/Content/Homestyle.css" rel="stylesheet" />
 
@@ -25,12 +27,15 @@
                 </a>
                 <p class="topline-name"><strong>@Model.StoreStock[i].Name</strong></p>
                 <p>Price: @Model.StoreStock[i].Price £</p>
+                @if(Session["UserId"] != null){
+                    <a href="~/Cart/ATC?Page=@TempData["Page"]&index=@Model.StoreStock[i].id">Add To Cart</a>
+                }
             </div>
         }
     </div>
 </div>
 
-@if (Session["USERID"] != null)
+@if (Session["UserId"] != null)
 {
     <div class="personal-products">
         <h2>Products's Most Suited For you</h2>
@@ -38,13 +43,16 @@
             @for (int i = 0; i < 4; i++)
             {
 
-                <div class="topline-product">
-                    <a href="">
-                        <img class="product-img" src="~/Content/Images/@Model.StoreStock[i].ImageLink" alt="@Model.StoreStock[i].Name" />
-                    </a>
-                    <p class="topline-name"><strong>@Model.StoreStock[i].Name</strong></p>
-                    <p>Price: @Model.StoreStock[i].Price £</p>
-                </div>
+            <div class="topline-product">
+                <a href="">
+                    <img class="product-img" src="~/Content/Images/@Model.StoreStock[i].ImageLink" alt="@Model.StoreStock[i].Name" />
+                </a>
+                <p class="topline-name"><strong>@Model.StoreStock[i].Name</strong></p>
+                <p>Price: @Model.StoreStock[i].Price £</p>
+                
+                <a href="~/Cart/ATC?Page=@TempData["Page"]&index=@Model.StoreStock[i].id">Add To Cart</a>
+                
+            </div>
             }
         </div>
     </div>

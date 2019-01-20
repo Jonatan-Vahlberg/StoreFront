@@ -8,67 +8,12 @@
       "Bedroom": 0,
       "Livingroom": 0
     },
-    "Cart": {
-      "$type": "FurnitureStoreFront.Models.Cart.Cart, FurnitureStoreFront",
-      "Cartitems": {
-        "$type": "System.Collections.Generic.Dictionary`2[[FurnitureStoreFront.Models.StoreItem.Furniture, FurnitureStoreFront],[System.Int32, mscorlib]], mscorlib"
-      },
-      "finalPrice": 0
-    },
-    "previousPurchases": [],
-    "Firstname": "ADMIN",
-    "Lastname": "ACC",
-    "id": 1,
-    "Email": "Email@provider.com",
-    "HashedPass": "dab266e7c13b09b60c5f9a8306de74fe56dd05e3416b26877c0eca63e2312e69",
-    "Salt": "2p+IGzw7RjA="
-  },
-  {
-    "$type": "FurnitureStoreFront.Models.User.Customer, FurnitureStoreFront",
-    "PersonalStatisics": {
-      "$type": "System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[System.Int32, mscorlib]], mscorlib",
-      "Kitchen": 0,
-      "Outdoor": 0,
-      "Bedroom": 0,
-      "Livingroom": 0
-    },
-    "Cart": {
-      "$type": "FurnitureStoreFront.Models.Cart.Cart, FurnitureStoreFront",
-      "Cartitems": {
-        "$type": "System.Collections.Generic.Dictionary`2[[FurnitureStoreFront.Models.StoreItem.Furniture, FurnitureStoreFront],[System.Int32, mscorlib]], mscorlib"
-      },
-      "finalPrice": 0
-    },
-    "previousPurchases": [],
-    "Firstname": "Markus",
-    "Lastname": "Sontag",
-    "id": 2,
-    "Email": "Markus@Sontag.com",
-    "HashedPass": "e21c58ca9405b0544f6a3ac6944d34611652e3f678db76e95eff49cc6b853a2c",
-    "Salt": "h8S9stmCS0s="
-  },
-  {
-    "$type": "FurnitureStoreFront.Models.User.Customer, FurnitureStoreFront",
-    "PersonalStatisics": {
-      "$type": "System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[System.Int32, mscorlib]], mscorlib",
-      "Kitchen": 0,
-      "Outdoor": 0,
-      "Bedroom": 0,
-      "Livingroom": 0
-    },
-    "Cart": {
-      "$type": "FurnitureStoreFront.Models.Cart.Cart, FurnitureStoreFront",
-      "Cartitems": {
-        "$type": "System.Collections.Generic.Dictionary`2[[FurnitureStoreFront.Models.StoreItem.Furniture, FurnitureStoreFront],[System.Int32, mscorlib]], mscorlib"
-      },
-      "finalPrice": 0
-    },
     "previousPurchases": [],
     "Firstname": "Kaiser",
     "Lastname": "Sousei",
-    "id": 3,
+    "id": 1,
     "Email": "Kaiser@Sousei.gov",
-    "HashedPass": "be7b93787478522d05b0d64ede7a05bb8f9d2832ed52ca643cc7ae017537c71e",
-    "Salt": "ykirmfjcQBY="
+    "HashedPass": "dcfef7a016f9a99f09ff01c30328c825bd07a3ab2775a6bbfb8e1514e3817a43",
+    "Salt": "Ms3gQ/ON+sQ="
   }
 ]

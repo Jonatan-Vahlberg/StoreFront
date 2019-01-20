@@ -1,0 +1,10 @@
+[
+  {
+    "$type": "FurnitureStoreFront.Models.Cart.CartItem, FurnitureStoreFront",
+    "Id": 7,
+    "Name": "White Bedframe with cotton matress",
+    "Price": 3399.0,
+    "Quantity": 2,
+    "ImageLink": "White_Wood_Twinsizedbed.jpg"
+  }
+]

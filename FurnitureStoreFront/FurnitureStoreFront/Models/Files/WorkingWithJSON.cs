@@ -13,7 +13,8 @@ namespace FurnitureStoreFront.Models.Files
     {
         public static readonly string StoreListPath = @"C:\Users\jonat\Source\Repos\StoreFront\FurnitureStoreFront\FurnitureStoreFront\App_Data\_REGISTRY\STORELIST.json";
         public static string UserListPath = @"C:\Users\jonat\Source\Repos\StoreFront\FurnitureStoreFront\FurnitureStoreFront\App_Data\_REGISTRY\USERLIST.json";
-        
+        public static string CARTPath = @"C:\Users\jonat\source\repos\StoreFront\FurnitureStoreFront\FurnitureStoreFront\App_Data\_USER\UserCart";
+
 
         public static bool SaveData(List<T> list,int Pathchoice)
         {
@@ -49,6 +50,34 @@ namespace FurnitureStoreFront.Models.Files
 
             return true;
         }
+
+        public static bool SaveCartData(List<T> list,int id)
+        {
+            
+            string AbsolutePath = CARTPath + $"00{id}.json";
+
+            var settings = new JsonSerializerSettings
+            {
+                TypeNameHandling = TypeNameHandling.Objects,
+                Formatting = Formatting.Indented
+            };
+
+            string json = JsonConvert.SerializeObject(list, settings);
+
+            try
+            {
+                File.WriteAllText(AbsolutePath, json);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("The file could not be written to:");
+                Console.WriteLine(e.Message);
+                return false;
+            }
+
+            return true;
+        }
+
 
         //public static bool SaveData(List<T> list, int Pathchoice)
         //{
@@ -172,15 +201,58 @@ namespace FurnitureStoreFront.Models.Files
             }
             else
             {
-                CreateJSON(FilePath);
+                
             }
 
             return List;
         }
 
-        public static void CreateJSON(string FilePath)
+        public static List<T> GetCartData(int id)
         {
+            string FilePath = CARTPath + $"00{id}.json";
             
+            var settings = new JsonSerializerSettings
+            {
+                TypeNameHandling = TypeNameHandling.Objects,
+                Formatting = Formatting.Indented
+            };
+
+            string json = string.Empty;
+            List<T> list = new List<T>();
+
+            if (File.Exists(FilePath))
+            {
+                try
+                {
+                    using (StreamReader sr = new StreamReader(FilePath))
+                    {
+                        string line;
+
+                        while ((line = sr.ReadLine()) != null)
+                        {
+                            json += line;
+                        }
+                    }
+                    list = JsonConvert.DeserializeObject<List<T>>(json, settings);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("The file could not be read:");
+                    Console.WriteLine(e.Message);
+                }
+            }
+            else
+            {
+                
+            }
+
+            return list;
+        }
+
+
+        public static void CreateJSON(int id)
+        {
+            string FilePath = CARTPath + $"00{id}.json";
             File.Create(FilePath);
         }
 

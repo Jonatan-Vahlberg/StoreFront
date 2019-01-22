@@ -20,7 +20,7 @@ namespace FurnitureStoreFront.Controllers
                 switch (i)
                 {
                     case 0:
-                        StoreFront.Searchstring = "All";
+                        StoreFront.Searchstring = "Everything In The Catalogue";
                         break;
                     case 1:
                         StoreFront.Searchstring = "Bedroom";
@@ -69,7 +69,17 @@ namespace FurnitureStoreFront.Controllers
             StoreFront.SearchInt = i;
             return View(StoreFront);
             }
-            return RedirectToAction("Index", "Home");
+            StoreFront.SearchInt = 0;
+            StoreFront.Searchstring = "Everything In The Catalogue";
+            return View(StoreFront);
+        }
+
+        public ActionResult Product(int id = 1)
+        {
+            Models.StoreItem.Furniture Product =  StoreFront.StoreStock.Find(x => x.id == id);
+            return View(Product);
         }
     }
+
+
 }

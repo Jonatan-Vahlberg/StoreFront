@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LAYOUT.cshtml";
+}
+<link href="~/Content/CustomerStyle.css" rel="stylesheet" />
+<div class="Customer-Area">
+    <div id="Profile-Area">
+        <h1 id="Name">
+            @Model.Firstname @Model.Lastname</h1>
+        <img id="Profile-Pic" src="~/Content/Images/pattern_Flipped.png" />
+    </div>
+    <div id="Info-Area">
+        <h2>Email: @Model.Email</h2>
+        <h2>Highest Rooms Prefrence</h2>
+        <table>
+            
+            @foreach(KeyValuePair<string,int> entry in Model.PersonalStatisics)
+            {
+                if(entry.Value != 0)
+                {
+                    <tr>
+                        <th>@entry.Key</th>
+                    </tr>
+                    break;
+                }
+            }
+        </table>
+
+        <div class="Receipt-Area">
+            <h1>Previous purchases</h1>
+            @foreach(var rec in Model.previousPurchases)
+            {
+            <div class="Receipt">
+                <p><strong>Name of Purchaser: @rec.FullName</strong></p>
+                <p><strong>Acount Nr: @rec.AccountNr</strong></p>
+                <p><strong>Date: @Convert.ToDateTime(rec.Date)</strong></p>
+                <p><strong>Final Price: @rec.FinalPrice £</strong></p>
+            </div>
+            }
+        </div>
+    </div>
+</div>
+

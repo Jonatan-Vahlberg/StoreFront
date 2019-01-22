@@ -50,12 +50,14 @@ namespace FurnitureStoreFront.Models.StoreItem
         /// Global statistic of item purchase
         /// Used in marketing strategy
         /// </summary>
-        public uint TotalPurchases;
+        public uint TotalPurchases { get; set; }
 
         public int TagInt { get; set; }
 
 
         public string ImageLink { get; set; }
+
+        public int Stock { get; set; }
         #endregion
 
         #region Public Methods
@@ -88,9 +90,12 @@ namespace FurnitureStoreFront.Models.StoreItem
         {
             if (b)
             {
-                this.TotalPurchases = ui;
+                this.TotalPurchases += ui;
             }
-            this.TotalPurchases = 0;
+            else
+            {
+                this.TotalPurchases = 0;
+            }
 
         }
 

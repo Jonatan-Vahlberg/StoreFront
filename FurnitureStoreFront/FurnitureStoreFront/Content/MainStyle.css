@@ -11,13 +11,14 @@
 
 html{
     width:100%;
+    height:100%;
     overflow-x:hidden;
     margin:0;
 }
 
 body {
     width:100%;
-    min-height: 100vh;
+    min-height: 50vh;
     /*display: grid;*/
     /*grid-template-Rows: 220px 100px 1fr 100px;*/
     margin: 0;

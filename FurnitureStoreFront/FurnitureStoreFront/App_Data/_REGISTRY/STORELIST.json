@@ -1,7 +1,6 @@
 [
   {
     "$type": "FurnitureStoreFront.Models.StoreItem.Chair, FurnitureStoreFront",
-    "TotalPurchases": 0,
     "AmountOFChairs": 1,
     "ChairType": 1,
     "Name": "Black Kitchen Chair",
@@ -11,12 +10,13 @@
     "Colors": 16,
     "Material": 1,
     "TypeOfFurniture": "Chair",
+    "TotalPurchases": 0,
     "TagInt": 31,
-    "ImageLink": "DarkWood_Wood_KitchenChair.jpg"
+    "ImageLink": "DarkWood_Wood_KitchenChair.jpg",
+    "Stock": 15
   },
   {
     "$type": "FurnitureStoreFront.Models.StoreItem.Chair, FurnitureStoreFront",
-    "TotalPurchases": 7,
     "AmountOFChairs": 1,
     "ChairType": 4,
     "Name": "Red Leather Armchair",
@@ -26,12 +26,13 @@
     "Colors": 64,
     "Material": 4,
     "TypeOfFurniture": "Chair",
+    "TotalPurchases": 7,
     "TagInt": 21,
-    "ImageLink": "VintageRed_Leather_ArmChair.jpg"
+    "ImageLink": "VintageRed_Leather_ArmChair.jpg",
+    "Stock": 2
   },
   {
     "$type": "FurnitureStoreFront.Models.StoreItem.Chair, FurnitureStoreFront",
-    "TotalPurchases": 0,
     "AmountOFChairs": 4,
     "ChairType": 2,
     "Name": "Plastic Lawn chairs",
@@ -41,13 +42,14 @@
     "Colors": 2,
     "Material": 8,
     "TypeOfFurniture": "Chair",
+    "TotalPurchases": 0,
     "TagInt": 41,
-    "ImageLink": "White_Plastic_LawnChair.jpg"
+    "ImageLink": "White_Plastic_LawnChair.jpg",
+    "Stock": 1567
   },
   {
     "$type": "FurnitureStoreFront.Models.StoreItem.Table, FurnitureStoreFront",
     "TableType": 3,
-    "TotalPurchases": 12,
     "AreaofTable": 2.5,
     "Name": "Darkwood Writing Desk",
     "id": 4,
@@ -56,13 +58,14 @@
     "Colors": 16,
     "Material": 1,
     "TypeOfFurniture": "Table",
+    "TotalPurchases": 14,
     "TagInt": 12,
-    "ImageLink": "Darkwood_Wood_WritingDesk.jpg"
+    "ImageLink": "Darkwood_Wood_WritingDesk.jpg",
+    "Stock": 33
   },
   {
     "$type": "FurnitureStoreFront.Models.StoreItem.Table, FurnitureStoreFront",
     "TableType": 4,
-    "TotalPurchases": 8,
     "AreaofTable": 0.8,
     "Name": "Beige Coffe Table",
     "id": 5,
@@ -71,13 +74,14 @@
     "Colors": 4,
     "Material": 1,
     "TypeOfFurniture": "Table",
+    "TotalPurchases": 10,
     "TagInt": 22,
-    "ImageLink": "Beige_Wood_CoffeTable.jpg"
+    "ImageLink": "Beige_Wood_CoffeTable.jpg",
+    "Stock": 15
   },
   {
     "$type": "FurnitureStoreFront.Models.StoreItem.Table, FurnitureStoreFront",
     "TableType": 2,
-    "TotalPurchases": 0,
     "AreaofTable": 6.3,
     "Name": "Plastic Lawn Table Two Piece",
     "id": 6,
@@ -86,12 +90,13 @@
     "Colors": 2,
     "Material": 8,
     "TypeOfFurniture": "Table",
+    "TotalPurchases": 3,
     "TagInt": 32,
-    "ImageLink": "White_Plastic_LawnTable.jpg"
+    "ImageLink": "White_Plastic_LawnTable.jpg",
+    "Stock": 9
   },
   {
     "$type": "FurnitureStoreFront.Models.StoreItem.Bed, FurnitureStoreFront",
-    "TotalPurchases": 130,
     "BedWidth": 90,
     "BedLength": 210,
     "BedType": 2,
@@ -102,12 +107,13 @@
     "Colors": 2,
     "Material": 1,
     "TypeOfFurniture": "Bed",
+    "TotalPurchases": 134,
     "TagInt": 13,
-    "ImageLink": "White_Wood_Twinsizedbed.jpg"
+    "ImageLink": "White_Wood_Twinsizedbed.jpg",
+    "Stock": 1
   },
   {
     "$type": "FurnitureStoreFront.Models.StoreItem.Bed, FurnitureStoreFront",
-    "TotalPurchases": 0,
     "BedWidth": 90,
     "BedLength": 190,
     "BedType": 3,
@@ -118,7 +124,25 @@
     "Colors": 128,
     "Material": 4,
     "TypeOfFurniture": "Bed",
+    "TotalPurchases": 5,
     "TagInt": 23,
-    "ImageLink": "VintageBlack_leather_Studicouch.jpg"
+    "ImageLink": "VintageBlack_leather_Studicouch.jpg",
+    "Stock": 0
+  },
+  {
+    "$type": "FurnitureStoreFront.Models.StoreItem.Chair, FurnitureStoreFront",
+    "AmountOFChairs": 1,
+    "ChairType": 1,
+    "Name": "White Kitchen Chair",
+    "id": 9,
+    "Price": 125,
+    "Room": "Kitchen",
+    "Colors": 2,
+    "Material": 1,
+    "TypeOfFurniture": "Chair",
+    "TotalPurchases": 0,
+    "TagInt": 31,
+    "ImageLink": "White_Wood_KitchenChair.jpg",
+    "Stock": 11
   }
 ]

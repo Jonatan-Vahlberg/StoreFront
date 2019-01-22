@@ -25,24 +25,35 @@ form input:not([type='submit']){
     padding:5px;
     font-size: 1.5rem;
     margin-bottom: 20px;
+    
+}
+.loginPanel{
+    display:none;
 }
 .registerPanel{
-    display:none;
+    display:initial;
 }
 .Null{
     grid-area: empty;
 }
 .styledButton {
-    font-weight: bold;
+    font-weight: 400;
     text-decoration: none;
     border: none;
     font-size: 2rem;
     padding: 10px 20px;
-    background-color: var(--Blue-Back);
-    color: #ffffff;
-    text-shadow: 2px 2px #000;
+    background-color: transparent;
 }
 .styledButton:hover{
-
+    font-weight:bold;
 }
+
+.loginBox form input:not([type='submit']) {
+    font-family: var(--FontSmall);
+    width: 90%;
+    padding: 5px;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
 

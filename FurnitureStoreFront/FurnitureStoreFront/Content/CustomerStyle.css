@@ -1,0 +1,23 @@
+﻿.Customer-Area{
+    display:grid;
+    width:80%;
+    margin: 0 auto;
+    grid-template-columns: 0.4fr 0.6fr;
+}
+#Profile-Pic {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    display:block;
+    margin: 0 auto;
+    background-color: grey;
+}
+#Name{
+    text-align:center;
+}
+.Receipt{
+    border: solid 1px black;
+    width: 350px;
+    text-align: center;
+    margin-bottom: 20px;
+}

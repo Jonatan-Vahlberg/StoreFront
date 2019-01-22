@@ -1,0 +1,7 @@
+{
+  "$type": "System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[System.Int32, mscorlib]], mscorlib",
+  "Kitchen": 0,
+  "Outdoors": 1,
+  "Bedroom": 10,
+  "Livingroom": 0
+}

@@ -1,0 +1,91 @@
+﻿
+@{
+    ViewBag.Title = "Product";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    TempData["Page"] = "Catalogue";
+}
+<link href="~/Content/CatalogueStyle.css" rel="stylesheet" />
+<div class="products-content">
+    <h2>@Model.Name</h2>
+    <img src="~/Content/Images/@Model.ImageLink"/>
+    <p class="info">
+        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
+    </p>
+    <div id="purchase">
+
+        <p>@Model.Price £</p>
+        @if (Session["UserId"] != null)
+        {
+            if (Model.Stock > 0)
+            {
+
+                <a class="styledLink" href="~/Cart/ATC?Page=@TempData["Page"]&index=@Model.id">Add To Cart</a>
+            }
+            else
+            {
+                <a class="styledLink OutOfStock" href="~/Cart/ATC?Page=@TempData["Page"]&index=@Model.id">Add To Cart</a>
+            }
+        }
+    </div>
+    <div class="Special">
+        <h3>Spesifications</h3>
+        <table class="Table-for-specs">
+            <tr>
+                <th>Stock</th>
+                <td>@Model.Stock items in stock</td>
+            </tr>
+            <tr>
+                <th>Material</th>
+                <td>@FurnitureStoreFront.Models.StoreItem.EnumMethods.GetEnumValue("Material", (int)Model.Material)</td>
+            </tr>
+            <tr>
+                <th>Color</th>
+                <td>@FurnitureStoreFront.Models.StoreItem.EnumMethods.GetEnumValue("Color", (int)Model.Colors)</td>
+            </tr>
+            <tr>
+                <th>Intended Room</th>
+                <td>@Model.Room</td>
+            </tr>
+            <tr>
+                <th>Type of Furniture</th>
+                <td>@Model.TypeOfFurniture</td>
+            </tr>
+            @if (Model is FurnitureStoreFront.Models.StoreItem.Chair)
+            {
+                <tr>
+                    <th>Chair Type</th>
+                    <td>@FurnitureStoreFront.Models.StoreItem.EnumMethods.GetEnumValue("Chair", (int)(Model as FurnitureStoreFront.Models.StoreItem.Chair).ChairType)</td>
+                </tr>
+                <tr>
+                    <th>Quantity of Chairs per sold Item</th>
+                    <td>@((Model as FurnitureStoreFront.Models.StoreItem.Chair).AmountOFChairs)</td>
+                </tr>
+            }
+            else if (Model is FurnitureStoreFront.Models.StoreItem.Table)
+            {
+                <tr>
+                    <th>Table Type</th>
+                    <td>@FurnitureStoreFront.Models.StoreItem.EnumMethods.GetEnumValue("Table", (int)(Model as FurnitureStoreFront.Models.StoreItem.Table).TableType)</td>
+                </tr>
+                <tr>
+                    <th>Area Of Table</th>
+                    <td>@((Model as FurnitureStoreFront.Models.StoreItem.Table).AreaofTable) m2</td>
+                </tr>
+            }
+            else if (Model is FurnitureStoreFront.Models.StoreItem.Bed)
+            {
+                <tr>
+                    <th>Bed Type</th>
+                    <td>@FurnitureStoreFront.Models.StoreItem.EnumMethods.GetEnumValue("Bed", (int)(Model as FurnitureStoreFront.Models.StoreItem.Bed).BedType)</td>
+                </tr>
+                <tr>
+                    <th>Width and Length of Bed</th>
+                    <td>@((Model as FurnitureStoreFront.Models.StoreItem.Bed).BedWidth) cm X @((Model as FurnitureStoreFront.Models.StoreItem.Bed).BedLength) cm</td>
+                </tr>
+            }
+
+
+        </table>
+    </div>
+</div>
+

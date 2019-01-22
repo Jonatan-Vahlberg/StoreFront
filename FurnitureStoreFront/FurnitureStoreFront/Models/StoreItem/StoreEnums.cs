@@ -76,5 +76,36 @@ namespace FurnitureStoreFront.Models.StoreItem
 
             return $"{ColorString}_{MaterialString}_{TypeString}.jpg";
         }
+
+        public static string GetEnumValue(string type,int typeInt)
+        {
+            string TypeString = "";
+
+            switch (type)
+            {
+                case "Chair":
+                    ChairType ct = (ChairType)typeInt;
+                    TypeString = Enum.GetName(typeof(ChairType), ct);
+                    return TypeString;
+                case "Table":
+                    TableType tt = (TableType)typeInt;
+                    TypeString = Enum.GetName(typeof(TableType), tt);
+                    return TypeString;
+                case "Bed":
+                    BedType bt = (BedType)typeInt;
+                    TypeString = Enum.GetName(typeof(BedType), bt);
+                    return TypeString;
+                case "Color":
+                    Color cot = (Color)typeInt;
+                    TypeString = Enum.GetName(typeof(Color), cot);
+                    return TypeString;
+                case "Material":
+                    Material mt = (Material)typeInt;
+                    TypeString = Enum.GetName(typeof(Material), mt);
+                    return TypeString;
+
+            }
+            return "Unkown";
+        }
     }
 }

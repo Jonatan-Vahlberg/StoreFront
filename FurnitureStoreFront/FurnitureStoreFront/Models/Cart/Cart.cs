@@ -13,14 +13,17 @@ namespace FurnitureStoreFront.Models.Cart
         public double Price { get; set; }
         public int Quantity { get; set; }
         public string ImageLink { get; set; }
+        public string Room { get; set; }
+        public int Stock { get; set; }
 
-        public CartItem(int id, string name,double price,int quantity,string imageLink)
+        public CartItem(int id, string name,double price,int quantity,string imageLink,string room)
         {
             this.Id = id;
             this.Name = name;
             this.Price = price;
             this.Quantity = quantity;
             this.ImageLink = imageLink;
+            this.Room = room;
         }
 
         public static void AddToCart(CartItem item, List<CartItem> Cart)

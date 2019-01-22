@@ -39,7 +39,7 @@ namespace FurnitureStoreFront.Models.User
         /// <summary>
         /// A Dictonary containing filling out the statistics for a Customerr
         /// </summary>
-        public Dictionary<string, int> PersonalStatisics = FillStatistics();
+        public Dictionary<string, int> PersonalStatisics = new Dictionary<string, int>();
         
         /// <summary>
         /// Method for initial filling of the Customers statistics
@@ -50,7 +50,7 @@ namespace FurnitureStoreFront.Models.User
             Dictionary<string, int> dict = new Dictionary<string, int>();
 
             dict.Add("Kitchen", 0);
-            dict.Add("Outdoor", 0);
+            dict.Add("Outdoors", 0);
             dict.Add("Bedroom", 0);
             dict.Add("Livingroom", 0);
 
@@ -60,7 +60,7 @@ namespace FurnitureStoreFront.Models.User
         /// <summary>
         /// These are purchases that have been handeld and processed
         /// </summary>
-        public List<Cart.Receipt> previousPurchases = new List<Cart.Receipt>();
+        public List<Cart.Receipt> previousPurchases = new List<Cart.Receipt>(); 
         #endregion
 
         #region Constructor
@@ -82,7 +82,7 @@ namespace FurnitureStoreFront.Models.User
             this.Email = email;
             this.HashedPass = hashedPass;
             this.Salt = salt;
-            
+            previousPurchases = Files.WorkingWithJSON<Cart.Receipt>.GetCartData(this.id, 1);
         }
         #endregion
 
@@ -221,6 +221,68 @@ namespace FurnitureStoreFront.Models.User
                 }
             }
             return false;
+        }
+
+        public static Dictionary<string,int> AddToPersonalStatistics(Dictionary<string,int> dict, int id, List<StoreItem.Furniture> list )
+        {
+            dict[list[id].Room] += 1;
+
+            return dict;
+        }
+        
+        public static List<string> GetPreferedRoom(Dictionary<string,int> Dict)
+        {
+            List<String> list = new List<string>();
+            var SortedDict = from entry in Dict orderby entry.Value descending select entry;
+            foreach(KeyValuePair<string,int> entry in SortedDict)
+            {
+                if(entry.Value != 0)
+                {
+                    list.Add(entry.Key);
+                }
+            }
+            return list;
+                
+        }
+        public static List<StoreItem.Furniture> GetPreferedItems(List<StoreItem.Furniture> StoreItems, Dictionary<string,int> Dict){
+            var list = GetPreferedRoom(Dict);
+            List<StoreItem.Furniture> PersonalItems = new List<StoreItem.Furniture>();
+            if(list.Count == 0 || list.Count == 4)
+            {
+                PersonalItems = ListOrderBy(StoreItems);
+            }
+            else if(list.Count == 1)
+            {
+                PersonalItems = StoreItems.FindAll(x => x.Room == list[0]);
+                PersonalItems = ListOrderBy(PersonalItems);
+            }
+            else if(list.Count == 2)
+            {
+                PersonalItems = StoreItems.FindAll(x => x.Room == list[0] || x.Room == list[1]);
+                PersonalItems = ListOrderBy(PersonalItems);
+            }
+            else if(list.Count == 3)
+            {
+                PersonalItems = StoreItems.FindAll(x => x.Room == list[0] || x.Room == list[1] || x.Room == list[2]);
+                PersonalItems = ListOrderBy(PersonalItems);
+            }
+            return PersonalItems;
+
+        }
+
+        public static List<StoreItem.Furniture> ListOrderBy(List<StoreItem.Furniture> StoreItems)
+        {
+            List<StoreItem.Furniture> PersonalItems = new List<StoreItem.Furniture>();
+
+            var result =
+                from o in StoreItems
+                orderby o.TotalPurchases descending
+                select o;
+            foreach (var item in result)
+            {
+                PersonalItems.Add(item);
+            }
+            return PersonalItems;
         }
         #endregion
     }

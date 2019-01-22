@@ -7,13 +7,14 @@
 }
 <!--CSS Spesific style for login-->
 <link href="~/Content/LoginStyle.css" rel="stylesheet" />
+
 <main>
     <section class="loginPanel">
         <form method="post">
             <label for="LEmail">Email<br /></label>
-            <input type="email" name="LEmail" placeholder="email@provider.com" required/><br />
+            <input type="email" name="LEmail" placeholder="email@provider.com" required /><br />
             <label for="LPassword">Password<br /></label>
-            <input type="password" name="LPassword" placeholder="Password" required/><br />
+            <input type="password" name="LPassword" placeholder="Password" required /><br />
 
             <input class="styledButton" type="submit" value="Login" name="Login" formaction='@Url.Action("Login","Login")'>
         </form>
@@ -25,14 +26,14 @@
 
         <form method="post">
             <label for="fName">First Name<br /></label>
-            <input type="text" name="fName" placeholder="First Name"  required/><br />
+            <input type="text" name="fName" placeholder="First Name" required /><br />
             <label for="lname">Last Name<br /></label>
-            <input type="text" name="lName" placeholder="Last Name" required/><br />
+            <input type="text" name="lName" placeholder="Last Name" required /><br />
 
             <label for="email">Email:<br /></label>
-            <input type="email" name="REmail" placeholder="email@provider.com" required/><br />
+            <input type="email" name="REmail" placeholder="email@provider.com" required /><br />
             <label for="email">Password:<br /></label>
-            <input type="password" name="RPassword" placeholder="Password" required/><br />
+            <input type="password" name="RPassword" placeholder="Password" required /><br />
 
             <input class="styledButton" type="submit" value="Register" name="Register" formaction='@Url.Action("Register","Login")'>
         </form>
@@ -41,7 +42,7 @@
 
         <button id="switchToL" class="styledButton">Login</button>
     </section>
-    
+
 </main>
 
 <!--JAVASCRIPT FOR ON PAGE ACTIONS-->
@@ -53,14 +54,14 @@
 
             LoginPanel.style.display = "initial";
             RegisterPanel.style.display = "none";
-            
+
 
 
         }
         else {
             RegisterPanel.style.display = "initial";
             LoginPanel.style.display = "none";
-            
+
         }
     }
 

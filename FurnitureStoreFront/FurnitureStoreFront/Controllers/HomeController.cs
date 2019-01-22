@@ -19,5 +19,11 @@ namespace FurnitureStoreFront.Controllers
             StoreFront.StoreStock = StoreFront.OrderByTotalPurchases();
             return View(StoreFront);
         }
+        public ActionResult Destroy()
+        {
+            if (Session["UserId"] != null) Session.Abandon();
+            StoreFront.StoreStock = StoreFront.OrderByTotalPurchases();
+            return View("Index", StoreFront);
+        }
     }
 }

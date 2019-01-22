@@ -18,17 +18,18 @@
 <div class="topline-products">
     <h2>Deliciae's Most Purchased Items</h2>
     <div class="products-container">
+        <p style="display:none">@(Model.StockFilter())</p>
         @for (int i = 0; i < 4; i++)
         {
             
             <div class="topline-product">
-                <a href="">
+                <a href="~/Catalogue/Product?id=@Model.StoreStock[i].id">
                     <img class="product-img" src="~/Content/Images/@Model.StoreStock[i].ImageLink" alt="@Model.StoreStock[i].Name" />
                 </a>
                 <p class="topline-name"><strong>@Model.StoreStock[i].Name</strong></p>
                 <p>Price: @Model.StoreStock[i].Price £</p>
                 @if(Session["UserId"] != null){
-                    <a href="~/Cart/ATC?Page=@TempData["Page"]&index=@Model.StoreStock[i].id">Add To Cart</a>
+                    <a class="styledLink" href="~/Cart/ATC?Page=@TempData["Page"]&index=@Model.StoreStock[i].id">Add To Cart</a>
                 }
             </div>
         }
@@ -40,23 +41,46 @@
     <div class="personal-products">
         <h2>Products's Most Suited For you</h2>
         <div class="products-container">
-            @for (int i = 0; i < 4; i++)
+
+            <p style="display:none">@(Model.StoreStock = FurnitureStoreFront.Models.User.Customer.GetPreferedItems(Model.StoreStock, FurnitureStoreFront.Models.StoreFront.StoreFront.CustomerList[(int)Session["UserId"] - 1].PersonalStatisics));</p> 
+            @if (Model.StoreStock.Count > 4)
+            {
+                for (int i = 0; i < 4; i++)
+                {
+
+                    <div class="topline-product">
+                        <a href="~/Catalogue/Product?id=@Model.StoreStock[i].id">
+                            <img class="product-img" src="~/Content/Images/@Model.StoreStock[i].ImageLink" alt="@Model.StoreStock[i].Name" />
+                        </a>
+                        <p class="topline-name"><strong>@Model.StoreStock[i].Name</strong></p>
+                        <p>Price: @Model.StoreStock[i].Price £</p>
+
+                        <a class="styledLink" href="~/Cart/ATC?Page=@TempData["Page"]&index=@Model.StoreStock[i].id">Add To Cart</a>
+
+                    </div>
+                }
+            }
+            else
             {
 
-            <div class="topline-product">
-                <a href="">
-                    <img class="product-img" src="~/Content/Images/@Model.StoreStock[i].ImageLink" alt="@Model.StoreStock[i].Name" />
-                </a>
-                <p class="topline-name"><strong>@Model.StoreStock[i].Name</strong></p>
-                <p>Price: @Model.StoreStock[i].Price £</p>
+                foreach(var item in Model.StoreStock)
+                {
+
+                    <div class="topline-product">
+                        <a href="~/Catalogue/Product?id=@item.id" >
+                            <img class="product-img" src="~/Content/Images/@item.ImageLink" alt="@item.Name" />
+                        </a>
+                        <p class="topline-name"><strong>@item.Name</strong></p>
+                        <p>Price: @item.Price £</p>
                 
-                <a href="~/Cart/ATC?Page=@TempData["Page"]&index=@Model.StoreStock[i].id">Add To Cart</a>
+                        <a class="styledLink" href="~/Cart/ATC?Page=@TempData["Page"]&index=@item.id">Add To Cart</a>
                 
-            </div>
+                    </div>
+                }
             }
         </div>
     </div>
     <div class="sexy-line"></div>
-    <a class="styledLink">View The Entire Catalouge Of Products</a>
+    
 }
 

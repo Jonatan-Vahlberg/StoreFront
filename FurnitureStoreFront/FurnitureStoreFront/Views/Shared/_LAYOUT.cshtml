@@ -11,64 +11,69 @@
     <header class="mainHeader">
         <nav>
             <a href="~/Cart/Index" class="checkout styledLink" id="CartLink">
-                <img src="~/Content/Images/cart.png" alt="cart" >
+                <img src="~/Content/Images/cart.png" alt="cart">
                 Cart
             </a>
             @if (Session["UserId"] == null || (int)Session["UserId"] == 0)
             {
-            <div class="loginBox-outer">
-                <a href="#" class="styledLink clickLink">Log in</a><br/>
-                <div class="loginBox" style="display:none">
-                    <form method="post">
-                        <input type="email" placeholder="Email@provider.com" name="LEmail" required/><br />
-                        <input type="password" placeholder="Password" name="LPassword" required/><br />
-                        <input type="submit" value="Login" class="LogInButton" formaction="@Url.Action("Login", "Login")" />
-                    </form>
-                    <a href="@Url.Action("Index", "Login")" class="styledLink small">Or Register</a>
+                <div class="loginBox-outer">
+                    <a href="#" class="styledLink clickLink">Log in</a><br />
+                    <div class="loginBox" style="display:none">
+                        <form method="post">
+                            <input type="email" placeholder="Email@provider.com" name="LEmail" required /><br />
+                            <input type="password" placeholder="Password" name="LPassword" required /><br />
+                            <input type="submit" value="Login" class="LogInButton" formaction="@Url.Action("Login", "Login")" />
+                        </form>
+                        <a href="@Url.Action("Index", "Login")" class="styledLink small">Or Register</a>
+                    </div>
                 </div>
-            </div>
 
             }
             else
             {
 
                 <div class="logedinbox">
-                    <a><img src="~/Content/Images/pattern.png" class="profile-img" />@FurnitureStoreFront.Models.StoreFront.StoreFront.CustomerList[(int)(Session["UserId"])-1].Firstname</a>
-                </div>
+                    <a class="styledLink" href="~/Customer"><img src="~/Content/Images/pattern.png" class="profile-img" />@FurnitureStoreFront.Models.StoreFront.StoreFront.CustomerList[(int)(Session["UserId"]) - 1].Firstname</a>
+                    <a class="styledLink" href="~/Home/Destroy">Log Out</a>
+</div>
             }
         </nav>
         <a href="~/Home/Index" class="styledLink" id="logo">
-        <h1 >Deliciae Furniture</h1>
+            <h1>Deliciae Furniture</h1>
         </a>
     </header>
     <div class="sexy-line"></div>
+    <form style="text-align:center" method="post" id="Bed-link" class="hoverable">
+        <input  name="Room" type="number" value="0" readonly style="display:none" />
+        <input class="submit" type="submit" value="View Our Entire Catalogue" formaction="@Url.Action("index","Catalogue")" />
+    </form>
     <div class="selection">
         <div class="rooms">
-            
-                <form method="post"  id="Bed-link"  class="hoverable">
-                    <input name="Room" type="number" value="1" readonly style="display:none" />
-                    <input class="submit" type="submit" value="BEDROOM" formaction="@Url.Action("index","Catalogue")" />
-                </form>
-           
-            
-            
-                <form method="post"  id="Live-link" class="hoverable">
-                    <input name="Room" type="number" value="2" readonly style="display:none" />
-                    <input type="submit"  class="submit" value="LIVINGROOM" formaction="@Url.Action("index","Catalogue")" />
-                </form>
-           
-            
-                <form method="post" id="Kitchen-link" class="hoverable">
-                    <input name="Room" type="number" value="3" readonly style="display:none" />
-                    <input type="submit"  class="submit" value="KITCHEN" formaction="@Url.Action("index","Catalogue")" />
-                </form>
-           
-            
-                <form method="post" id="Out-link" class="hoverable">
-                    <input name="Room" type="number" value="4" readonly style="display:none" />
-                    <input type="submit"  class="submit" value="OUTDOORS" formaction="@Url.Action("index","Catalogue")" />
-                </form>
-            
+
+            <form method="post" id="Bed-link" class="hoverable">
+                <input name="Room" type="number" value="1" readonly style="display:none" />
+                <input class="submit" type="submit" value="BEDROOM" formaction="@Url.Action("index","Catalogue")" />
+            </form>
+
+
+
+            <form method="post" id="Live-link" class="hoverable">
+                <input name="Room" type="number" value="2" readonly style="display:none" />
+                <input type="submit" class="submit" value="LIVINGROOM" formaction="@Url.Action("index","Catalogue")" />
+            </form>
+
+
+            <form method="post" id="Kitchen-link" class="hoverable">
+                <input name="Room" type="number" value="3" readonly style="display:none" />
+                <input type="submit" class="submit" value="KITCHEN" formaction="@Url.Action("index","Catalogue")" />
+            </form>
+
+
+            <form method="post" id="Out-link" class="hoverable">
+                <input name="Room" type="number" value="4" readonly style="display:none" />
+                <input type="submit" class="submit" value="OUTDOORS" formaction="@Url.Action("index","Catalogue")" />
+            </form>
+
         </div>
 
         <div class="Bed-selection hoverable-sub">
@@ -140,7 +145,7 @@
             switch (this.id) {
                 case 'Bed-link':
                     document.querySelector(".Bed-selection").classList.add('displaySub');
-                    
+
                     break;
                 case 'Live-link':
                     document.querySelector(".Living-selection").classList.add('displaySub');

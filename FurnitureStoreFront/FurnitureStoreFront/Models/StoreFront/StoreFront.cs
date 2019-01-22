@@ -75,6 +75,11 @@ namespace FurnitureStoreFront.Models.StoreFront
             
         }
 
+        public List<StoreItem.Furniture> StockFilter()
+        {
+            return StoreStock = StoreStock.FindAll(x => x.Stock > 0);
+        }
+
         
     }
 }

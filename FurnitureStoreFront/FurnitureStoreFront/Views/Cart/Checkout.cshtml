@@ -1,0 +1,72 @@
+﻿
+@{
+    ViewBag.Title = "Checkout";
+    Layout = "~/Views/Shared/_LAYOUT.cshtml";
+
+    TempData["Page"] = "Cart";
+
+
+}
+<link href="~/Content/CartStyle.css" rel="stylesheet" />
+<h1>Cart</h1>
+
+<div class="sexy-line"></div>
+
+<div class="CartArea">
+    @if (Model.CustomerCart != null)
+    {
+        foreach (var item in Model.CustomerCart)
+        {
+            <div class="cartItem">
+                <img src="~/Content/Images/@item.ImageLink" />
+                <p class="itemName">@item.Name</p>
+                <p class="itemPrice">Price: @item.Price * @item.Quantity = @(item.Price * item.Quantity) £</p>
+                <div class="itemAmount">
+                    <a class="styledLink" href="~/Cart/QuantityChanged?operand=-&id=@item.Id">-</a>
+                    <input readonly type="number" value="@item.Quantity" min="1" />
+                    <a class="styledLink" href="~/Cart/QuantityChanged?operand=P&id=@item.Id">+</a>
+                </div>
+            </div>
+        }
+        <div class="sexy-line"></div>
+        <div class="cartFinal">
+            <h1>Totaling: @FurnitureStoreFront.Models.Cart.CartItem.FinalPrice £</h1>
+            <a href="~/Cart/Checkout" id="procede" class="styledLink">
+                <h1>Procede To Checkout</h1>
+            </a>
+        </div>
+    }
+    else
+    {
+        <h2>Unfortunately Your cart Apears To Be Empty Please Add An Item of Choice to Acsess Cart Functions</h2>
+    }
+</div>
+<div class="modal-background">
+    <div class="modal-foreground">
+        <h2 id="checkout-title">Checkout</h2>
+        <a href="/Cart" class="styledLink Exit">X</a>
+        <form class="CheckoutForm" method="Post">
+            First Name
+            <input type="text" name="Firstname" required/><br />
+            Last Name
+            <input type="text" name="Lastname" required/><br />
+            <div class="Date">
+                <p>Month</p><p>Year</p>
+                <input id="Month" type="number" min="1" max="12" value="@DateTime.Now.Month" name="Month" required />
+                
+                <input id="year" type="number" min="@(DateTime.Now.Year)" value="@(DateTime.Now.Year+2)" name="Year" required />
+            </div>
+            <div class="account-details">
+
+               
+                <input type="text" name="AccNr" maxlength="15" placeholder="Account Nr"/>
+                -
+                <input type="number" name="CVCNr" placeholder="CVC" maxlength="3" required/>
+            </div>
+            <input formaction="@Url.Action("AddToAccount")" type="submit" value="Complete Purchase" class="submit"/>
+        </form>
+        <h3 id="or">Or Use Klarna Autofill</h3>
+        <button id="klarna" formaction="@Url.Action("AddToAccount")"></button>
+    </div>
+
+</div>

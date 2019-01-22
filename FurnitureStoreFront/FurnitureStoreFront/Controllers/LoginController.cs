@@ -34,7 +34,12 @@ namespace FurnitureStoreFront.Controllers
                    Models.StoreFront.StoreFront.CustomerList.Add(new Models.User.Customer(Models.StoreFront.StoreFront.CustomerList.Count + 1, fname, lname, Email, HashedPassword, salt));
                     Session["UserId"] = (Models.StoreFront.StoreFront.CustomerList.Count);
                     Models.Files.WorkingWithJSON<Models.User.Customer>.SaveData(Models.StoreFront.StoreFront.CustomerList, 2);
+
+                    //Create cart JSON
                     Models.Files.WorkingWithJSON<Models.User.Customer>.CreateJSON(Models.StoreFront.StoreFront.CustomerList.Count);
+                    //Create Receipt JSON
+                    Models.Files.WorkingWithJSON<Models.User.Customer>.CreateReceiptJSON(Models.StoreFront.StoreFront.CustomerList.Count);
+
                     return RedirectToAction("Index", "Home");
                 }
             }

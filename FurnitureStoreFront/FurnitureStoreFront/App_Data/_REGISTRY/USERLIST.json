@@ -4,16 +4,71 @@
     "PersonalStatisics": {
       "$type": "System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[System.Int32, mscorlib]], mscorlib",
       "Kitchen": 0,
-      "Outdoor": 0,
-      "Bedroom": 0,
+      "Outdoors": 1,
+      "Bedroom": 10,
       "Livingroom": 0
     },
-    "previousPurchases": [],
+    "previousPurchases": [
+      {
+        "$type": "FurnitureStoreFront.Models.Cart.Receipt, FurnitureStoreFront",
+        "Date": "20/01/2019 22:53:33",
+        "FinalPrice": 6798.0,
+        "FullName": "Kaiser Sousei",
+        "AccountNr": "***********3138"
+      },
+      {
+        "$type": "FurnitureStoreFront.Models.Cart.Receipt, FurnitureStoreFront",
+        "Date": "21/01/2019 10:44:07",
+        "FinalPrice": 768.0,
+        "FullName": "Kaiser Sousei",
+        "AccountNr": "***********3138"
+      },
+      {
+        "$type": "FurnitureStoreFront.Models.Cart.Receipt, FurnitureStoreFront",
+        "Date": "22/01/2019 10:36:10",
+        "FinalPrice": 7566.0,
+        "FullName": "Kaiser Sousei",
+        "AccountNr": "***********3138"
+      },
+      {
+        "$type": "FurnitureStoreFront.Models.Cart.Receipt, FurnitureStoreFront",
+        "Date": "22/01/2019 12:11:27",
+        "FinalPrice": 597.0,
+        "FullName": "Maria Sousei",
+        "AccountNr": "***********3235"
+      }
+    ],
     "Firstname": "Kaiser",
     "Lastname": "Sousei",
     "id": 1,
     "Email": "Kaiser@Sousei.gov",
     "HashedPass": "dcfef7a016f9a99f09ff01c30328c825bd07a3ab2775a6bbfb8e1514e3817a43",
     "Salt": "Ms3gQ/ON+sQ="
+  },
+  {
+    "$type": "FurnitureStoreFront.Models.User.Customer, FurnitureStoreFront",
+    "PersonalStatisics": {
+      "$type": "System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[System.Int32, mscorlib]], mscorlib"
+    },
+    "previousPurchases": null,
+    "Firstname": "Mila",
+    "Lastname": "Rovara",
+    "id": 2,
+    "Email": "Mi@Rov.ara",
+    "HashedPass": "8df5fd336a75c1cf6221849c62144668a05bbc4fe204b963c7fb76c30cd33cbf",
+    "Salt": "4Aw5LjsL5eY="
+  },
+  {
+    "$type": "FurnitureStoreFront.Models.User.Customer, FurnitureStoreFront",
+    "PersonalStatisics": {
+      "$type": "System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[System.Int32, mscorlib]], mscorlib"
+    },
+    "previousPurchases": [],
+    "Firstname": "Lucas",
+    "Lastname": "Martinson",
+    "id": 3,
+    "Email": "Lucas.M@gmail.com",
+    "HashedPass": "48a195b671c2736458a4dbf60c6e25aceca84ce7248acf4900f752344f755454",
+    "Salt": "OWErnZOe6cY="
   }
 ]

@@ -1,0 +1,12 @@
+[
+  {
+    "$type": "FurnitureStoreFront.Models.Cart.CartItem, FurnitureStoreFront",
+    "Id": 5,
+    "Name": "Beige Coffe Table",
+    "Price": 456.0,
+    "Quantity": 1,
+    "ImageLink": "Beige_Wood_CoffeTable.jpg",
+    "Room": "Livingroom",
+    "Stock": 15
+  }
+]

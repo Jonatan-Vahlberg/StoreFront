@@ -8,8 +8,9 @@ namespace FurnitureStoreFront.Models.Cart
     public class Receipt
     {
         public string Date { get; set; }
-        public string FinalPrice { get; set; }
-        List<string> Items = new List<string>();
-
+        public double FinalPrice { get; set; }
+        public string FullName { get; set; }
+        public string AccountNr { get; set; }
+        
     }
 }

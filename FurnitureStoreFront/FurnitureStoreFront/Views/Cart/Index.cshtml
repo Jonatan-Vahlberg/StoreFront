@@ -2,8 +2,10 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LAYOUT.cshtml";
-    
+
     TempData["Page"] = "Cart";
+    TempData["Out"] = "false";
+
 
 
 }
@@ -13,24 +15,43 @@
 <div class="sexy-line"></div>
 
 <div class="CartArea">
-    @if(Model.CustomerCart != null)
+    @if (Model.CustomerCart != null && Model.CustomerCart.Count > 0)
     {
-        foreach(var item in Model.CustomerCart)
+        foreach (var item in Model.CustomerCart)
         {
             <div class="cartItem">
-                <img src="~/Content/Images/@item.ImageLink" />
+                <a href="~/Catalogue/Product?id=@item.Id">
+                    <img src="~/Content/Images/@item.ImageLink" />
+                </a>
                 <p class="itemName">@item.Name</p>
                 <p class="itemPrice">Price: @item.Price * @item.Quantity = @(item.Price * item.Quantity) £</p>
                 <div class="itemAmount">
                     <a class="styledLink" href="~/Cart/QuantityChanged?operand=-&id=@item.Id">-</a>
                     <input readonly type="number" value="@item.Quantity" min="1" />
                     <a class="styledLink" href="~/Cart/QuantityChanged?operand=P&id=@item.Id">+</a>
-
-
-                </div>  
+                </div>
             </div>
+            if (item.Stock <= 0)
+            {
+                TempData["Out"] = "true";
+            }
         }
-        <h3>Totaling: @FurnitureStoreFront.Models.Cart.CartItem.FinalPrice £</h3>
+        <div class="sexy-line"></div>
+        <div class="cartFinal">
+            <h1>Totaling: @FurnitureStoreFront.Models.Cart.CartItem.FinalPrice £</h1>
+            <a href="~/Cart/Checkout" id="procede" class="styledLink">
+                <h1>Procede To Checkout</h1>
+            </a>
+        </div>
+    }
+    else
+    {
+        <h2 style="text-align:center">Unfortunately Your cart Apears To Be Empty Please Add An Item of Choice to Acsess Cart Functions</h2>
     }
 </div>
+@if((string)TempData["Out"] == "true")
+{ 
+    <p id="Unfourtunatly" style="text-align:center">Unforunatly one or more items in your cart is currently out of stock and therefore delivery will be delayed for up to 2 weeks</p>
+}
+
 

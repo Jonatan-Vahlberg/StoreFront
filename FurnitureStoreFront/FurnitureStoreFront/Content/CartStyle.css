@@ -1,8 +1,12 @@
-﻿body {
+﻿
+.content{
+    min-height:30vh;
 }
-
+.CartArea{
+    margin-top: 50px;
+}
 .cartItem{
-    height: 150px;
+    min-height: 150px;
     display: grid;
     grid-template-columns: 200px 0.5fr 20px 1fr;
     grid-template-rows: 1fr 1fr ;
@@ -21,6 +25,7 @@
 }
 .cartItem .itemName{
     grid-row:1;
+    font-weight: 700;
 
 }
 .cartItem .itemPrice{
@@ -34,6 +39,8 @@
     align-self:center;
     justify-self:flex-end;
     font-size:2.5rem;
+    margin-right: 50px;
+
 }
 .itemAmount a {
     padding: 0 10px;
@@ -45,4 +52,99 @@
     font-size: 1.8rem;
     text-align:center;
 }
+.cartFinal{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 75px 50px 0px 50px;
+}
+#procede {
+    align-self: center;
+    justify-self: flex-end;
+}
 
+.modal-background{
+    position:absolute;
+    width:100vw;
+    height:100vh;
+    background-color: rgba(0,0,0,0.5);
+    left:0;
+    top:0;
+    display:grid;
+}
+.modal-foreground {
+    width: 30%;
+    min-height: 80vh;
+    background: white;
+    display:grid;
+    grid-template-columns: 75px 1fr 75px;
+    margin:0 auto;
+    align-self:center;
+    
+}
+#checkout-title{
+    grid-column:2;
+}
+.Exit{
+    grid-column:3;
+    font-size:3rem;
+    margin-right:20px;
+}
+.CheckoutForm {
+    grid-column: 2;
+    display:grid;
+    
+}
+.CheckoutForm:not(input) {
+    text-align: center;
+}
+.CheckoutForm input:not([type='submit']){
+    grid-column:1;
+    width:70%;
+    margin: 5px auto;
+    justify-self:flex-start;
+}
+.Date{
+    display:grid;
+    grid-template-columns: 1fr 1fr; 
+    width:50%;
+    margin:0 auto;
+}
+.Date > #Month{
+    grid-column:;
+    width: 50%;
+    text-align:center;
+}
+.Date > #year{
+    grid-column:2;
+    width: 50%;
+    text-align:center;
+}
+.account-details input[type='text'] {
+    width: 50%;
+}
+.account-details input[type='number'] {
+    width: 15%;
+}
+#or{
+    grid-column: 2;
+    margin-bottom:0;
+}
+#klarna{
+    grid-column:2;
+    margin-bottom:50px;
+    width:50%;
+    padding:10px 20px;
+    background: url(/Content/Images/kalrna.jpg)no-repeat;
+    border:none;
+    background-size:cover;
+    background-position-y:center;
+    margin: 0 auto 30px auto;
+}
+#checkout-title,#or,#klarna{
+    text-align:center;
+}
+#Unfourtunatly{
+    text-decoration:underline;
+    color: darkred;
+    font-size:1.3rem;
+}

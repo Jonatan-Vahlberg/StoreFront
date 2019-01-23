@@ -104,6 +104,7 @@ namespace FurnitureStoreFront.Controllers
                     FinalPrice = Models.Cart.CartItem.FinalPrice
 
                 };
+                Models.StoreFront.StoreFront.CustomerList = Models.Files.WorkingWithJSON<Models.User.Customer>.GetData(2);
                 Models.StoreFront.StoreFront.CustomerList[(int)Session["UserId"] - 1].previousPurchases = Models.Files.WorkingWithJSON<Models.Cart.Receipt>.GetCartData((int)Session["UserId"], 1);
                 if (Models.StoreFront.StoreFront.CustomerList[(int)Session["UserId"] - 1].previousPurchases == null) Models.StoreFront.StoreFront.CustomerList[(int)Session["UserId"] - 1].previousPurchases = new List<Models.Cart.Receipt>();
                 Models.StoreFront.StoreFront.CustomerList[(int)Session["UserId"]-1].previousPurchases.Add(receipt);
@@ -113,19 +114,28 @@ namespace FurnitureStoreFront.Controllers
             {
                 Models.Cart.Receipt receipt = new Models.Cart.Receipt()
                 {
-                    FullName = Models.StoreFront.StoreFront.CustomerList[(int)Session["UserId"]].Firstname + " " + Models.StoreFront.StoreFront.CustomerList[(int)Session["UserId"]].Lastname,
+                    FullName = Models.StoreFront.StoreFront.CustomerList[(int)Session["UserId"]-1].Firstname + " " + Models.StoreFront.StoreFront.CustomerList[(int)Session["UserId"]-1].Lastname,
                     Date = DateTime.Now.ToString(),
                     AccountNr = "[REDACTED]",
                     FinalPrice = Models.Cart.CartItem.FinalPrice
 
                 };
-                Models.StoreFront.StoreFront.CustomerList[(int)Session["UserId"]-1].previousPurchases.Add(receipt);
 
+                Models.StoreFront.StoreFront.CustomerList = Models.Files.WorkingWithJSON<Models.User.Customer>.GetData(2);
+                if (Models.StoreFront.StoreFront.CustomerList[(int)Session["UserId"] - 1].previousPurchases == null)
+                { 
+                    Models.StoreFront.StoreFront.CustomerList[(int)Session["UserId"] - 1].previousPurchases = Models.Files.WorkingWithJSON<Models.Cart.Receipt>.GetCartData((int)Session["UserId"], 1);
+                    if (Models.StoreFront.StoreFront.CustomerList[(int)Session["UserId"] - 1].previousPurchases == null) Models.StoreFront.StoreFront.CustomerList[(int)Session["UserId"] - 1].previousPurchases = new List<Models.Cart.Receipt>();
+                }
+                Models.StoreFront.StoreFront.CustomerList[(int)Session["UserId"] - 1].previousPurchases.Add(receipt);
+                Models.Files.WorkingWithJSON<Models.Cart.Receipt>.SaveCartData(Models.StoreFront.StoreFront.CustomerList[(int)Session["UserId"] - 1].previousPurchases, (int)Session["UserId"], 1);
             }
-            Models.StoreFront.StoreFront.CustomerList[(int)Session["UserId"] - 1].PersonalStatisics = Models.Files.WorkingWithJSON<Models.User.Customer>.GetPersonalData((int)Session["UserId"]);
+
             if (Models.StoreFront.StoreFront.CustomerList[(int)Session["UserId"] - 1].PersonalStatisics == null)
             {
-                Models.StoreFront.StoreFront.CustomerList[(int)Session["UserId"] - 1].PersonalStatisics = Models.User.Customer.FillStatistics();
+                Models.StoreFront.StoreFront.CustomerList[(int)Session["UserId"] - 1].PersonalStatisics = Models.Files.WorkingWithJSON<Models.User.Customer>.GetPersonalData((int)Session["UserId"]);
+
+                if (Models.StoreFront.StoreFront.CustomerList[(int)Session["UserId"] - 1].PersonalStatisics == null)  Models.StoreFront.StoreFront.CustomerList[(int)Session["UserId"] - 1].PersonalStatisics = Models.User.Customer.FillStatistics();
             }
             foreach (var item in StoreFront.CustomerCart)
             {
@@ -138,7 +148,7 @@ namespace FurnitureStoreFront.Controllers
             Models.Files.WorkingWithJSON<Models.User.Customer>.SavePersonalData(Models.StoreFront.StoreFront.CustomerList[(int)Session["UserId"] - 1].PersonalStatisics,(int)Session["UserId"]);
 
             Models.Files.WorkingWithJSON<Models.User.Customer>.SaveData(Models.StoreFront.StoreFront.CustomerList,2);
-            Models.Files.WorkingWithJSON<Models.Cart.CartItem>.SaveCartData(new List<Models.Cart.CartItem>(), 1);
+            Models.Files.WorkingWithJSON<Models.Cart.CartItem>.SaveCartData(new List<Models.Cart.CartItem>(), (int)Session["UserId"],0);
 
             return RedirectToAction("Index", "Home");
         }

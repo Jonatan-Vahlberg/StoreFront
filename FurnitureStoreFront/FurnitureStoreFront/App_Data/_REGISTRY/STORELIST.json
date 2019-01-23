@@ -10,10 +10,10 @@
     "Colors": 16,
     "Material": 1,
     "TypeOfFurniture": "Chair",
-    "TotalPurchases": 0,
+    "TotalPurchases": 3,
     "TagInt": 31,
     "ImageLink": "DarkWood_Wood_KitchenChair.jpg",
-    "Stock": 15
+    "Stock": 12
   },
   {
     "$type": "FurnitureStoreFront.Models.StoreItem.Chair, FurnitureStoreFront",
@@ -26,10 +26,10 @@
     "Colors": 64,
     "Material": 4,
     "TypeOfFurniture": "Chair",
-    "TotalPurchases": 7,
+    "TotalPurchases": 8,
     "TagInt": 21,
     "ImageLink": "VintageRed_Leather_ArmChair.jpg",
-    "Stock": 2
+    "Stock": 1
   },
   {
     "$type": "FurnitureStoreFront.Models.StoreItem.Chair, FurnitureStoreFront",
@@ -42,10 +42,10 @@
     "Colors": 2,
     "Material": 8,
     "TypeOfFurniture": "Chair",
-    "TotalPurchases": 0,
+    "TotalPurchases": 9,
     "TagInt": 41,
     "ImageLink": "White_Plastic_LawnChair.jpg",
-    "Stock": 1567
+    "Stock": 1558
   },
   {
     "$type": "FurnitureStoreFront.Models.StoreItem.Table, FurnitureStoreFront",
@@ -58,10 +58,10 @@
     "Colors": 16,
     "Material": 1,
     "TypeOfFurniture": "Table",
-    "TotalPurchases": 14,
+    "TotalPurchases": 16,
     "TagInt": 12,
     "ImageLink": "Darkwood_Wood_WritingDesk.jpg",
-    "Stock": 33
+    "Stock": 31
   },
   {
     "$type": "FurnitureStoreFront.Models.StoreItem.Table, FurnitureStoreFront",
@@ -74,10 +74,10 @@
     "Colors": 4,
     "Material": 1,
     "TypeOfFurniture": "Table",
-    "TotalPurchases": 10,
+    "TotalPurchases": 11,
     "TagInt": 22,
     "ImageLink": "Beige_Wood_CoffeTable.jpg",
-    "Stock": 15
+    "Stock": 14
   },
   {
     "$type": "FurnitureStoreFront.Models.StoreItem.Table, FurnitureStoreFront",
@@ -90,10 +90,10 @@
     "Colors": 2,
     "Material": 8,
     "TypeOfFurniture": "Table",
-    "TotalPurchases": 3,
+    "TotalPurchases": 6,
     "TagInt": 32,
     "ImageLink": "White_Plastic_LawnTable.jpg",
-    "Stock": 9
+    "Stock": 6
   },
   {
     "$type": "FurnitureStoreFront.Models.StoreItem.Bed, FurnitureStoreFront",
@@ -140,9 +140,9 @@
     "Colors": 2,
     "Material": 1,
     "TypeOfFurniture": "Chair",
-    "TotalPurchases": 0,
+    "TotalPurchases": 22,
     "TagInt": 31,
     "ImageLink": "White_Wood_KitchenChair.jpg",
-    "Stock": 11
+    "Stock": -11
   }
 ]

@@ -39,7 +39,7 @@ namespace FurnitureStoreFront.Models.User
         /// <summary>
         /// A Dictonary containing filling out the statistics for a Customerr
         /// </summary>
-        public Dictionary<string, int> PersonalStatisics = new Dictionary<string, int>();
+        public Dictionary<string, int> PersonalStatisics = FillStatistics();
         
         /// <summary>
         /// Method for initial filling of the Customers statistics

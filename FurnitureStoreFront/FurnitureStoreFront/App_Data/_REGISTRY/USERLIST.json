@@ -3,10 +3,10 @@
     "$type": "FurnitureStoreFront.Models.User.Customer, FurnitureStoreFront",
     "PersonalStatisics": {
       "$type": "System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[System.Int32, mscorlib]], mscorlib",
-      "Kitchen": 0,
-      "Outdoors": 1,
-      "Bedroom": 10,
-      "Livingroom": 0
+      "Kitchen": 21,
+      "Outdoors": 2,
+      "Bedroom": 11,
+      "Livingroom": 2
     },
     "previousPurchases": [
       {
@@ -36,6 +36,34 @@
         "FinalPrice": 597.0,
         "FullName": "Maria Sousei",
         "AccountNr": "***********3235"
+      },
+      {
+        "$type": "FurnitureStoreFront.Models.Cart.Receipt, FurnitureStoreFront",
+        "Date": "22/01/2019 17:14:03",
+        "FinalPrice": 456.0,
+        "FullName": "Kaiser Sousei",
+        "AccountNr": "[REDACTED]"
+      },
+      {
+        "$type": "FurnitureStoreFront.Models.Cart.Receipt, FurnitureStoreFront",
+        "Date": "22/01/2019 17:38:29",
+        "FinalPrice": 1536.0,
+        "FullName": "Kaiser Sousei",
+        "AccountNr": "***********3138"
+      },
+      {
+        "$type": "FurnitureStoreFront.Models.Cart.Receipt, FurnitureStoreFront",
+        "Date": "22/01/2019 23:32:27",
+        "FinalPrice": 405.0,
+        "FullName": "Kaiser Sousei",
+        "AccountNr": "***********3138"
+      },
+      {
+        "$type": "FurnitureStoreFront.Models.Cart.Receipt, FurnitureStoreFront",
+        "Date": "23/01/2019 08:58:33",
+        "FinalPrice": 375.0,
+        "FullName": "Kaiser Sousei",
+        "AccountNr": "[REDACTED]"
       }
     ],
     "Firstname": "Kaiser",
@@ -61,9 +89,49 @@
   {
     "$type": "FurnitureStoreFront.Models.User.Customer, FurnitureStoreFront",
     "PersonalStatisics": {
-      "$type": "System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[System.Int32, mscorlib]], mscorlib"
+      "$type": "System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[System.Int32, mscorlib]], mscorlib",
+      "Kitchen": 22,
+      "Outdoors": 1,
+      "Bedroom": 0,
+      "Livingroom": 0
     },
-    "previousPurchases": [],
+    "previousPurchases": [
+      {
+        "$type": "FurnitureStoreFront.Models.Cart.Receipt, FurnitureStoreFront",
+        "Date": "23/01/2019 09:40:32",
+        "FinalPrice": 750.0,
+        "FullName": "Lucas Martinson",
+        "AccountNr": "[REDACTED]"
+      },
+      {
+        "$type": "FurnitureStoreFront.Models.Cart.Receipt, FurnitureStoreFront",
+        "Date": "23/01/2019 09:42:56",
+        "FinalPrice": 750.0,
+        "FullName": "Lucas Martinson",
+        "AccountNr": "[REDACTED]"
+      },
+      {
+        "$type": "FurnitureStoreFront.Models.Cart.Receipt, FurnitureStoreFront",
+        "Date": "23/01/2019 09:44:47",
+        "FinalPrice": 625.0,
+        "FullName": "Lucas Martinson",
+        "AccountNr": "[REDACTED]"
+      },
+      {
+        "$type": "FurnitureStoreFront.Models.Cart.Receipt, FurnitureStoreFront",
+        "Date": "23/01/2019 09:45:50",
+        "FinalPrice": 625.0,
+        "FullName": "Lucas Martinson",
+        "AccountNr": "[REDACTED]"
+      },
+      {
+        "$type": "FurnitureStoreFront.Models.Cart.Receipt, FurnitureStoreFront",
+        "Date": "23/01/2019 10:00:33",
+        "FinalPrice": 597.0,
+        "FullName": "Lucas Martinson",
+        "AccountNr": "***********1489"
+      }
+    ],
     "Firstname": "Lucas",
     "Lastname": "Martinson",
     "id": 3,

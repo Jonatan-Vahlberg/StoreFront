@@ -26,5 +26,33 @@
     "FinalPrice": 597.0,
     "FullName": "Maria Sousei",
     "AccountNr": "***********3235"
+  },
+  {
+    "$type": "FurnitureStoreFront.Models.Cart.Receipt, FurnitureStoreFront",
+    "Date": "22/01/2019 17:14:03",
+    "FinalPrice": 456.0,
+    "FullName": "Kaiser Sousei",
+    "AccountNr": "[REDACTED]"
+  },
+  {
+    "$type": "FurnitureStoreFront.Models.Cart.Receipt, FurnitureStoreFront",
+    "Date": "22/01/2019 17:38:29",
+    "FinalPrice": 1536.0,
+    "FullName": "Kaiser Sousei",
+    "AccountNr": "***********3138"
+  },
+  {
+    "$type": "FurnitureStoreFront.Models.Cart.Receipt, FurnitureStoreFront",
+    "Date": "22/01/2019 23:32:27",
+    "FinalPrice": 405.0,
+    "FullName": "Kaiser Sousei",
+    "AccountNr": "***********3138"
+  },
+  {
+    "$type": "FurnitureStoreFront.Models.Cart.Receipt, FurnitureStoreFront",
+    "Date": "23/01/2019 08:58:33",
+    "FinalPrice": 375.0,
+    "FullName": "Kaiser Sousei",
+    "AccountNr": "[REDACTED]"
   }
 ]

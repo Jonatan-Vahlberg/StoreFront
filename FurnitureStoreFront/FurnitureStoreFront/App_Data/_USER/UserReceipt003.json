@@ -1,0 +1,37 @@
+[
+  {
+    "$type": "FurnitureStoreFront.Models.Cart.Receipt, FurnitureStoreFront",
+    "Date": "23/01/2019 09:40:32",
+    "FinalPrice": 750.0,
+    "FullName": "Lucas Martinson",
+    "AccountNr": "[REDACTED]"
+  },
+  {
+    "$type": "FurnitureStoreFront.Models.Cart.Receipt, FurnitureStoreFront",
+    "Date": "23/01/2019 09:42:56",
+    "FinalPrice": 750.0,
+    "FullName": "Lucas Martinson",
+    "AccountNr": "[REDACTED]"
+  },
+  {
+    "$type": "FurnitureStoreFront.Models.Cart.Receipt, FurnitureStoreFront",
+    "Date": "23/01/2019 09:44:47",
+    "FinalPrice": 625.0,
+    "FullName": "Lucas Martinson",
+    "AccountNr": "[REDACTED]"
+  },
+  {
+    "$type": "FurnitureStoreFront.Models.Cart.Receipt, FurnitureStoreFront",
+    "Date": "23/01/2019 09:45:50",
+    "FinalPrice": 625.0,
+    "FullName": "Lucas Martinson",
+    "AccountNr": "[REDACTED]"
+  },
+  {
+    "$type": "FurnitureStoreFront.Models.Cart.Receipt, FurnitureStoreFront",
+    "Date": "23/01/2019 10:00:33",
+    "FinalPrice": 597.0,
+    "FullName": "Lucas Martinson",
+    "AccountNr": "***********1489"
+  }
+]

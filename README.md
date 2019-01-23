@@ -37,4 +37,8 @@ VIsual Studio
 Nuget Package: Newtonsoft.JSON
 VISUAL C MVC
 
+USERS to test:
+Email: Kaiser@Sousei.com Password: Legion1412
+Email: Lucas.M@gmail.com Password: LucasMart1
+
 //Jonatan

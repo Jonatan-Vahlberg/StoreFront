@@ -53,6 +53,15 @@ namespace FurnitureStoreFront.Models.StoreItem
 
     public class EnumMethods
     {
+
+        /// <summary>
+        /// Creating a Image link based on Color material and Type of furniture
+        /// </summary>
+        /// <param name="color">Color of furniture</param>
+        /// <param name="material">Material of furniture</param>
+        /// <param name="type">Type of furniture</param>
+        /// <param name="typeInt">A integer for identifying the type</param>
+        /// <returns></returns>
         public static string imageLink(Color color, Material material,string type, int typeInt)
         {
             string ColorString = Enum.GetName(typeof(Color), color);
@@ -77,6 +86,12 @@ namespace FurnitureStoreFront.Models.StoreItem
             return $"{ColorString}_{MaterialString}_{TypeString}.jpg";
         }
 
+        /// <summary>
+        /// Gets and enums Key as string to be used in Product view
+        /// </summary>
+        /// <param name="type">Type of Enum</param>
+        /// <param name="typeInt">A integer for identifying the type</param>
+        /// <returns></returns>
         public static string GetEnumValue(string type,int typeInt)
         {
             string TypeString = "";

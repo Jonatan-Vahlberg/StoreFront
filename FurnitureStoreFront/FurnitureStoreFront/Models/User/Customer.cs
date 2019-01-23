@@ -223,6 +223,13 @@ namespace FurnitureStoreFront.Models.User
             return false;
         }
 
+        /// <summary>
+        /// Adds a items room into the Personal Statistics of a User
+        /// </summary>
+        /// <param name="dict">Personal Statistics</param>
+        /// <param name="id">Id of item in store stock</param>
+        /// <param name="list">Storestock</param>
+        /// <returns></returns>
         public static Dictionary<string,int> AddToPersonalStatistics(Dictionary<string,int> dict, int id, List<StoreItem.Furniture> list )
         {
             dict[list[id].Room] += 1;
@@ -230,10 +237,19 @@ namespace FurnitureStoreFront.Models.User
             return dict;
         }
         
-        public static List<string> GetPreferedRoom(Dictionary<string,int> Dict)
+        /// <summary>
+        /// Gets the prefered room of any User ALGORITHM
+        /// </summary>
+        /// <param name="Dict">Personal Statistics Dictionary</param>
+        /// <returns></returns>
+        private static List<string> GetPreferedRoom(Dictionary<string,int> Dict)
         {
+
             List<String> list = new List<string>();
+            //Sorts dictionary inorder of most purchases
             var SortedDict = from entry in Dict orderby entry.Value descending select entry;
+
+            //returns a list of rooms that has a value other than 0 and is therefor pertenant to user
             foreach(KeyValuePair<string,int> entry in SortedDict)
             {
                 if(entry.Value != 0)
@@ -241,35 +257,57 @@ namespace FurnitureStoreFront.Models.User
                     list.Add(entry.Key);
                 }
             }
+
             return list;
                 
         }
+
+        /// <summary>
+        /// Gets the prefered items using an orderby function ALGORITHM
+        /// </summary>
+        /// <param name="StoreItems">Store stock</param>
+        /// <param name="Dict">A dictionary to send to <see cref="GetPreferedRoom(Dictionary{string, int})">Get prefered room method</see></param>
+        /// <returns></returns>
         public static List<StoreItem.Furniture> GetPreferedItems(List<StoreItem.Furniture> StoreItems, Dictionary<string,int> Dict){
+
+            //Returns a list of possible rooms of intrest to user
             var list = GetPreferedRoom(Dict);
             List<StoreItem.Furniture> PersonalItems = new List<StoreItem.Furniture>();
+
+            //Returns items similar to most valued items as user either has no prefrence or is split 4ways on the categories
             if(list.Count == 0 || list.Count == 4)
             {
                 PersonalItems = ListOrderBy(StoreItems);
             }
+            //User only intrested in one category
             else if(list.Count == 1)
             {
                 PersonalItems = StoreItems.FindAll(x => x.Room == list[0]);
                 PersonalItems = ListOrderBy(PersonalItems);
             }
-            else if(list.Count == 2)
+            //User only intrested in two categories
+            else if (list.Count == 2)
             {
                 PersonalItems = StoreItems.FindAll(x => x.Room == list[0] || x.Room == list[1]);
                 PersonalItems = ListOrderBy(PersonalItems);
             }
-            else if(list.Count == 3)
+            //User intrested in three categories
+            else if (list.Count == 3)
             {
                 PersonalItems = StoreItems.FindAll(x => x.Room == list[0] || x.Room == list[1] || x.Room == list[2]);
                 PersonalItems = ListOrderBy(PersonalItems);
             }
+
+            //Returns list for output
             return PersonalItems;
 
         }
 
+        /// <summary>
+        /// Simple Orderby method fo items Ordering by decending order
+        /// </summary>
+        /// <param name="StoreItems">Store stock</param>
+        /// <returns></returns>
         public static List<StoreItem.Furniture> ListOrderBy(List<StoreItem.Furniture> StoreItems)
         {
             List<StoreItem.Furniture> PersonalItems = new List<StoreItem.Furniture>();

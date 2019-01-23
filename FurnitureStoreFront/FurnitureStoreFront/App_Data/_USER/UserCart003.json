@@ -1,1 +1,12 @@
-[]
+[
+  {
+    "$type": "FurnitureStoreFront.Models.Cart.CartItem, FurnitureStoreFront",
+    "Id": 3,
+    "Name": "Plastic Lawn chairs",
+    "Price": 45.0,
+    "Quantity": 1,
+    "ImageLink": "White_Plastic_LawnChair.jpg",
+    "Room": "Outdoors",
+    "Stock": 1558
+  }
+]

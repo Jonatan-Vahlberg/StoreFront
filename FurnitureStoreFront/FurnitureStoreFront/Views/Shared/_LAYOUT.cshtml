@@ -12,6 +12,13 @@
         <nav>
             <a href="~/Cart/Index" class="checkout styledLink" id="CartLink">
                 <img src="~/Content/Images/cart.png" alt="cart">
+                @if(Session["UserId"] != null  )
+                {
+                    if((int)Session["Count"] != 0)
+                    {
+                        @((int)Session["Count"])
+                    }
+                }
                 Cart
             </a>
             @if (Session["UserId"] == null || (int)Session["UserId"] == 0)

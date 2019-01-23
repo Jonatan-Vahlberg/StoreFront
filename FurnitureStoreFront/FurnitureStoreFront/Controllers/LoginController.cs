@@ -61,6 +61,8 @@ namespace FurnitureStoreFront.Controllers
                     {
 
                         Session["UserId"] = CurrentUser.id;
+                        StoreFront.CustomerCart = Models.Files.WorkingWithJSON<Models.Cart.CartItem>.GetCartData((int)(Session["UserId"]), 0);
+                        Session["Count"] = StoreFront.CustomerCart.Count;
                         Models.Files.WorkingWithJSON<Models.User.Customer>.SaveData(Models.StoreFront.StoreFront.CustomerList, 2);
                         return RedirectToAction("Index", "Home");
                     }

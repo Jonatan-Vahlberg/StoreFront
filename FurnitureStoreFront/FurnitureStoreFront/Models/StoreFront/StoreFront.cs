@@ -26,7 +26,9 @@ namespace FurnitureStoreFront.Models.StoreFront
         public static List<User.Customer> CustomerList = Files.WorkingWithJSON<User.Customer>.GetData(2);
 
 
-
+        /// <summary>
+        /// Cart of the User Currently Logged in
+        /// </summary>
         public List<Cart.CartItem> CustomerCart = new List<CartItem>();
 
         /// <summary>
@@ -34,7 +36,10 @@ namespace FurnitureStoreFront.Models.StoreFront
         /// </summary>
         public List<StoreItem.Furniture> StoreStock = Files.WorkingWithJSON<StoreItem.Furniture>.GetData(1);
 
-
+        /// <summary>
+        /// Initial Method or backup if JSON file is destroyed for filling store stock to the base items
+        /// </summary>
+        /// <returns></returns>
         private static List<StoreItem.Furniture> FillStockList()
         {
             List<StoreItem.Furniture> StockList = new List<StoreItem.Furniture>();
@@ -63,6 +68,8 @@ namespace FurnitureStoreFront.Models.StoreFront
         public List<StoreItem.Furniture> OrderByTotalPurchases()
         {
             List<StoreItem.Furniture> newList = new List<StoreItem.Furniture>();
+            //Result is the orderd list of StoreStock
+            //Orderd in decending order so most popular first
             var result =
                 from o in StoreStock
                 orderby o.TotalPurchases descending
@@ -75,8 +82,13 @@ namespace FurnitureStoreFront.Models.StoreFront
             
         }
 
+        /// <summary>
+        /// Filter <see cref="StoreStock"/> based on if there is stock of that give item
+        /// </summary>
+        /// <returns></returns>
         public List<StoreItem.Furniture> StockFilter()
         {
+            //Finds all that hava a stock of more than 0 and returns a list of those items ALGORITHM
             return StoreStock = StoreStock.FindAll(x => x.Stock > 0);
         }
 

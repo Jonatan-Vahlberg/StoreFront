@@ -33,14 +33,14 @@ namespace FurnitureStoreFront.Controllers
                 {
                     StoreFront.CustomerCart = new List<Models.Cart.CartItem>();
                 }
-
+                
                 Models.StoreItem.Furniture item = StoreFront.StoreStock.Find(x => x.id == index);
                 Models.Cart.CartItem cartItem = new Models.Cart.CartItem((int)item.id, item.Name, item.Price, 1, item.ImageLink, item.Room)
                 {
                     Stock = item.Stock
                 };
                 Models.Cart.CartItem.AddToCart(cartItem, StoreFront.CustomerCart);
-                
+                Session["Count"] = StoreFront.CustomerCart.Count;
                 Models.Files.WorkingWithJSON<Models.Cart.CartItem>.SaveCartData(StoreFront.CustomerCart, (int)(Session["UserId"]));
             }
             return RedirectToAction("Index", Page);
@@ -58,6 +58,14 @@ namespace FurnitureStoreFront.Controllers
                 if (StoreFront.CustomerCart.Find(x => x.Id == id).Quantity < 2)
                 {
                     StoreFront.CustomerCart.Remove(StoreFront.CustomerCart.Find(x => x.Id == id));
+                    if(StoreFront.CustomerCart.Count == 0)
+                    {
+                        Session["Count"] = 0;
+                    }
+                    else
+                    {
+                        Session["Count"] = StoreFront.CustomerCart;
+                    }
                 }
                 else
                 { 

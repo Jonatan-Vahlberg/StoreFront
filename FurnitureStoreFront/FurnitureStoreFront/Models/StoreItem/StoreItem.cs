@@ -52,11 +52,19 @@ namespace FurnitureStoreFront.Models.StoreItem
         /// </summary>
         public uint TotalPurchases { get; set; }
 
+        /// <summary>
+        /// Used in filtering products on product type in Catalogue view 
+        /// </summary>
         public int TagInt { get; set; }
 
-
+        /// <summary>
+        /// A filename created out of object properties
+        /// </summary>
         public string ImageLink { get; set; }
 
+        /// <summary>
+        /// How much of any given item is in stock
+        /// </summary>
         public int Stock { get; set; }
         #endregion
 
@@ -100,6 +108,7 @@ namespace FurnitureStoreFront.Models.StoreItem
         }
 
         #endregion
+
         #region Constructors
         /// <summary>
         /// Default constructor of a store item
@@ -125,13 +134,26 @@ namespace FurnitureStoreFront.Models.StoreItem
     }
     
     #region Sub Classes
-
+    /// <summary>
+    /// Inherited class based on Furniture for Chairtype objects
+    /// </summary>
     public class Chair : Furniture
     {
+        /// <summary>
+        /// How many chairs do you get for the price
+        /// </summary>
         public uint AmountOFChairs { get; }
 
+        /// <summary>
+        /// Enum of Chairtype
+        /// </summary>
         public ChairType ChairType { get; set; }
 
+        /// <summary>
+        /// Sets chairtype based on Room
+        /// Example: A livingroom chair has armchair as its type
+        /// </summary>
+        /// <param name="room">Prefered room of item</param>
         private void SetChairType(string room)
         {
             if (room.Equals("Bedroom"))
@@ -162,6 +184,17 @@ namespace FurnitureStoreFront.Models.StoreItem
             }
         }
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="name">name of item</param>
+        /// <param name="id">id of item</param>
+        /// <param name="price">price of item</param>
+        /// <param name="room">room of item</param>
+        /// <param name="colors">Color or colors of item</param>
+        /// <param name="material">material or materials of item</param>
+        /// <param name="amountOfChairs">Amount of chairs for the price</param>
+        /// <param name="tp">Total Purches</param>
         public Chair(string name, uint id, uint price, string room, Color colors, Material material, uint amountOfChairs, uint tp): base(name, id ,price, room, colors, material)
         {
             this.AmountOFChairs = amountOfChairs;
@@ -171,13 +204,26 @@ namespace FurnitureStoreFront.Models.StoreItem
             this.ImageLink = StoreItem.EnumMethods.imageLink(this.Colors, this.Material,"Chair", (int)this.ChairType);
         }
     }
-
+    
+    /// <summary>
+    /// Inherited class based on Furniture for Tabletype objects
+    /// </summary>
     public class Table : Furniture
     {
+        /// <summary>
+        /// Area in m^2 of table surface
+        /// </summary>
         public double AreaofTable { get; }
 
+        /// <summary>
+        /// Enum of tabletype
+        /// </summary>
         public TableType TableType;
 
+        /// <summary>
+        /// Sets the table type of any given Table object
+        /// </summary>
+        /// <param name="room">Intended room of table</param>
         protected void SetTableType(string room)
         {
             if (room.Equals("Bedroom"))
@@ -210,11 +256,26 @@ namespace FurnitureStoreFront.Models.StoreItem
             }
         }
 
+        /// <summary>
+        /// Getter for tabletype
+        /// </summary>
+        /// <returns></returns>
         public TableType GetTableType()
         {
             return this.TableType;
         }
 
+        /// <summary>
+        /// Default constructor of a Table item
+        /// </summary>
+        /// <param name="name">name of item</param>
+        /// <param name="id">id of item</param>
+        /// <param name="price">price of item</param>
+        /// <param name="room">room of item</param>
+        /// <param name="colors">Color or colors of item</param>
+        /// <param name="material">material or materials of item</param>
+        /// <param name="areaOfTable">The surface area of a table</param>
+        /// <param name="tp">Total purches</param>
         public Table(string name, uint id, uint price, string room, Color colors, Material material, double areaOfTable, uint tp) : base(name, id, price, room, colors, material)
         {
             this.AreaofTable = areaOfTable;
@@ -226,16 +287,41 @@ namespace FurnitureStoreFront.Models.StoreItem
 
         }
     }
-
+    
+    /// <summary>
+    /// Inherited class based on Furniture for Bedtype objects
+    /// </summary>
     public class Bed : Furniture
     {
+        /// <summary>
+        /// Width of Bed in cm
+        /// </summary>
         public uint BedWidth { get; }
+        /// <summary>
+        /// Bed Length in cm
+        /// </summary>
         public uint BedLength { get; }
-
+        
+        /// <summary>
+        /// Type of Bed
+        /// Example: Studiocouch
+        /// </summary>
         public BedType BedType { get; }
 
-        
 
+        /// <summary>
+        /// Default constructor of a store item
+        /// </summary>
+        /// <param name="name">name of item</param>
+        /// <param name="id">id of item</param>
+        /// <param name="price">price of item</param>
+        /// <param name="room">room of item</param>
+        /// <param name="colors">Color or colors of item</param>
+        /// <param name="material">material or materials of item</param>
+        /// <param name="bedWidth">Bed Width</param>
+        /// <param name="bedLength">Bed length</param>
+        /// <param name="bedType">Type of Bed</param>
+        /// <param name="tp">Total Purchases</param>
         public Bed(string name, uint id, uint price, string room, Color colors, Material material, uint bedWidth,uint bedLength,BedType bedType, uint tp) : base(name, id, price, room, colors, material)
         {
             this.BedWidth = bedWidth;

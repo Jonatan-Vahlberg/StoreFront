@@ -8,15 +8,19 @@ namespace FurnitureStoreFront.Controllers
 {
     public class CatalogueController : Controller
     {
+        /// <summary>
+        /// Storefront in its entierty
+        /// </summary>
         public Models.StoreFront.StoreFront StoreFront = new Models.StoreFront.StoreFront();
 
         // GET: Catalogue
         public ActionResult Index()
         {
+            //Checks for propper channels
             if(HttpContext.Request.RequestType == "POST")
             {
                 int i = int.Parse(Request.Form["Room"]);
-
+                //Switch on the room or type
                 switch (i)
                 {
                     case 0:
@@ -66,16 +70,25 @@ namespace FurnitureStoreFront.Controllers
                         break;
               
                 }
-            StoreFront.SearchInt = i;
-            return View(StoreFront);
+
+                //Sets a search integer to be used in filtering
+                StoreFront.SearchInt = i;
+                return View(StoreFront);
             }
+
             StoreFront.SearchInt = 0;
             StoreFront.Searchstring = "Everything In The Catalogue";
             return View(StoreFront);
         }
 
+        /// <summary>
+        /// Displays A specefied Product
+        /// </summary>
+        /// <param name="id">id of the product to be displayed</param>
+        /// <returns></returns>
         public ActionResult Product(int id = 1)
         {
+            //Finds first of product id
             Models.StoreItem.Furniture Product =  StoreFront.StoreStock.Find(x => x.id == id);
             return View(Product);
         }

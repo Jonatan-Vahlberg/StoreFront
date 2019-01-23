@@ -14,11 +14,14 @@ namespace FurnitureStoreFront.Controllers
         // GET: Cart
         public ActionResult Index()
         {   
+            //Check the session varible to make sure its a user
             if(Session["UserId"] == null || (int)Session["UserId"] == 0)
             {
                 return RedirectToAction("Index", "Login");
             }
+            //load in the customer Cart
             StoreFront.CustomerCart = Models.Files.WorkingWithJSON<Models.Cart.CartItem>.GetCartData((int)(Session["UserId"]),0);
+            //set the final price of current cart
             Models.Cart.CartItem.SetFinalPrice(StoreFront.CustomerCart);
             return View(StoreFront);
         }

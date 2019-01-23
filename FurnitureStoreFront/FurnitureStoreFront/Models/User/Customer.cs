@@ -114,9 +114,13 @@ namespace FurnitureStoreFront.Models.User
         /// <returns>A salted string</returns>
         public static string CreateSalt(int size)
         {
+            //Gets a random generator
             var rng = new System.Security.Cryptography.RNGCryptoServiceProvider();
+            //Set the size of the array
             var buff = new byte[size];
+            //Get the array of random chars
             rng.GetBytes(buff);
+            //Return the array of random chars as strings
             return Convert.ToBase64String(buff);
         }
 
@@ -128,11 +132,18 @@ namespace FurnitureStoreFront.Models.User
         /// <returns></returns>
         public static string GenerateSHA256Hash(string input,string salt)
         {
+            //Get the bytes of the password and salt combiend
             byte[] bytes = System.Text.Encoding.UTF8.GetBytes(input + salt);
-            System.Security.Cryptography.SHA256Managed sHA256HastString =
+            
+            //Generate a SHA256Managed
+            //This part is SUPER complicated for reasons of security as such i can say i understand this part but not inner workings
+            System.Security.Cryptography.SHA256Managed sHA256HashString =
                 new System.Security.Cryptography.SHA256Managed();
-            byte[] hash = sHA256HastString.ComputeHash(bytes);
 
+            //return the SHA256 to a byte array
+            byte[] hash = sHA256HashString.ComputeHash(bytes);
+
+            //return string in hexadicmal from
             return ByteArrayToHexString(hash);
         }
 
@@ -143,9 +154,14 @@ namespace FurnitureStoreFront.Models.User
         /// <returns></returns>
         public static string ByteArrayToHexString(byte[] ba)
         {
+            //Build a string twice the length of the current byte array
             StringBuilder hex = new StringBuilder(ba.Length * 2);
+
+            //Foreach byte in array make the byte into Hex decimal
             foreach (byte b in ba)
                 hex.AppendFormat("{0:x2}", b);
+
+            //Returns a string in hexadecimal
             return hex.ToString();
         }
 
@@ -201,6 +217,7 @@ namespace FurnitureStoreFront.Models.User
         /// <returns>a object copy of indexed list value</returns>
         public static Customer getCustomerData(string email, List<Customer> CustomerList)
         {
+            //Turnary operator for finding a user trough email
             var selected = CustomerList.Where(x => x.Email == email).FirstOrDefault();
 
             return selected;

@@ -42,10 +42,10 @@
     "Colors": 2,
     "Material": 8,
     "TypeOfFurniture": "Chair",
-    "TotalPurchases": 9,
+    "TotalPurchases": 17,
     "TagInt": 41,
     "ImageLink": "White_Plastic_LawnChair.jpg",
-    "Stock": 1558
+    "Stock": 1550
   },
   {
     "$type": "FurnitureStoreFront.Models.StoreItem.Table, FurnitureStoreFront",

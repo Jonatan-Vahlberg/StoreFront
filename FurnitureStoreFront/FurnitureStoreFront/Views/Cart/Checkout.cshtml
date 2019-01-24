@@ -63,10 +63,10 @@
                 -
                 <input type="number" name="CVCNr" placeholder="CVC" maxlength="3" required/>
             </div>
-            <input formaction="@Url.Action("AddToAccount")" type="submit" value="Complete Purchase" class="submit"/>
+            <input formaction="@Url.Action("FinishCheckout")" type="submit" value="Complete Purchase" class="submit"/>
         </form>
         <h3 id="or">Or Use Klarna Autofill</h3>
-        <a type="button" id="klarna" href="~/Cart/AddToAccount"></a>
+        <a type="button" id="klarna" href="~/Cart/FinishCheckout"></a>
     </div>
 
 </div>

@@ -33,5 +33,12 @@
     "FinalPrice": 597.0,
     "FullName": "Lucas Martinson",
     "AccountNr": "***********1489"
+  },
+  {
+    "$type": "FurnitureStoreFront.Models.Cart.Receipt, FurnitureStoreFront",
+    "Date": "24/01/2019 18:13:36",
+    "FinalPrice": 180.0,
+    "FullName": "Lucas Martinson",
+    "AccountNr": "[REDACTED]"
   }
 ]
